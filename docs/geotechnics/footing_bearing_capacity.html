@@ -1,0 +1,807 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bearing Capacity of Shallow Foundations new &#8212; PyPPG Handbook (HADES)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SPT Data Process" href="spt_interpolation.html" />
+    <link rel="prev" title="Settlement Calculations of Embankments new" href="emabank_settlement.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/PPG_Logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">PyPPG Handbook (HADES)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Geotechnics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="emabank_settlement.html">
+   Settlement Calculations of Embankments new
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Bearing Capacity of Shallow Foundations new
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="spt_interpolation.html">
+   SPT Data Process
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vert_test.html">
+   Settlement Calculations of Embankments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="footing_cal.html">
+   Bearing Capacity of Shallow Foundations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Small Jobs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../small_jobs/2021-0802_Zach_Gardner.html">
+   2021-0802 Zach Gardner
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/geotechnics/footing_bearing_capacity.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/geotechnics/footing_bearing_capacity.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="http://20.228.164.26/hub/user-redirect/git-pull?repo=https://github.com/hehezid/pyppg-handbook&urlpath=lab/tree/pyppg-handbook/handbook/geotechnics/footing_bearing_capacity.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ground-profile">
+   Ground Profile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#footing-calculation">
+   Footing Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settlement-calculation">
+   Settlement Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bearing-capacity-mult-scenario">
+   Bearing Capacity Mult Scenario
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Bearing Capacity of Shallow Foundations new</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ground-profile">
+   Ground Profile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#footing-calculation">
+   Footing Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settlement-calculation">
+   Settlement Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bearing-capacity-mult-scenario">
+   Bearing Capacity Mult Scenario
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="bearing-capacity-of-shallow-foundations-new">
+<h1>Bearing Capacity of Shallow Foundations new<a class="headerlink" href="#bearing-capacity-of-shallow-foundations-new" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ground-profile">
+<h2>Ground Profile<a class="headerlink" href="#ground-profile" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-warning" role="alert">
+  Input grond informations. User needs to manully type the information of each layer into the "layer" section below. Each pair of "{...}" stores the information of one layer. The layer information should be input sequentially from top to bottom. User can remove or add layers as needed by deleting or adding "{...}". Then click "Run" to import data to theis Python program. 
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">ground_info</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;ground_elevation&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+  <span class="s2">&quot;slope_a&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+  <span class="s2">&quot;surface_elevation&quot;</span><span class="p">:</span> <span class="mi">67</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+  <span class="s2">&quot;surcharge_weight&quot;</span><span class="p">:</span> <span class="mi">125</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+  <span class="s2">&quot;ground_water_depth&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+    <span class="s2">&quot;overburden_load&quot;</span><span class="p">:</span> <span class="mf">0.250</span><span class="p">,</span>  <span class="c1"># unit: ksf</span>
+    <span class="s2">&quot;footing_shape&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">,</span> <span class="c1"># or circular</span>
+    <span class="s2">&quot;footing_embedment&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+    <span class="s2">&quot;footing_width&quot;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+    <span class="s2">&quot;footing_length&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+    
+    <span class="c1">## soil_type can only be chosen from supported types: </span>
+    <span class="c1"># &quot;inorganic silt&quot; , &quot;well graded fine to medium silty sand&quot; , &quot;clean well graded fine to coarse sand&quot; </span>
+    <span class="c1"># &quot;well graded silty sand &amp; gravel&quot; , &quot;well graded silty sand &amp; gravel&quot; , &quot;clean uniform medium sand&quot;    </span>
+   
+   <span class="c1"># type layer information to this section </span>
+  <span class="s2">&quot;layers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">67</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mf">64.5</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">55</span><span class="p">},</span>
+
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3C&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mf">64.5</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">135</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">38</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3C&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mf">59.5</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">135</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3C&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mf">59.5</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">57</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">135</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">45</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">57</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">52</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">58</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">52</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">47</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">47</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">75</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">27</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">27</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">55</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4C&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">70</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">23</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">23</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">33</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">78</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4C&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">33</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">38</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">47</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">38</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">43</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">},</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ground_info.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">ground_info</span> <span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Preliminary calculation to prepare data such as the depth and the thickness of each layer, and the vertical stress distribution for later calculation. The data is shown in the form of dataframe. The DataFrame allows to present data and results in a spreadsheet-like way. User can call the data in cell by typing <code class="docutils literal notranslate"><span class="pre">table_name.loc[row_number][column_lable]</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">ground_table.loc[1]['AASHTO_N1']</span></code> returns value <code class="docutils literal notranslate"><span class="pre">38</span></code>. Notice that the order of rows starts from zero.</p>
+<div class="alert alert-success" role="alert">
+  The preliminary calculation is finished. Click "+" to see the detailed progress.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read ground information</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;ground_info.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    <span class="n">ground_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
+    
+<span class="c1"># calculating ground stress and depth of each layer. Returns &#39;ground_table&#39;</span>
+<span class="kn">from</span> <span class="nn">hapy.shallow_foundation</span> <span class="kn">import</span> <span class="n">shallow_footing</span> <span class="k">as</span> <span class="n">sf</span>
+
+<span class="p">(</span><span class="n">ground_table</span><span class="p">,</span> <span class="n">u_mid</span><span class="p">,</span> <span class="n">depth_top</span><span class="p">,</span><span class="n">depth_bottom</span><span class="p">,</span> <span class="n">sig_vo_ef</span><span class="p">,</span> <span class="n">sig_vo_mid</span><span class="p">,</span> 
+ <span class="n">layer_thickness</span><span class="p">,</span> <span class="n">midpoint_depth_below_footing</span><span class="p">,</span> <span class="n">AASHTO_C</span><span class="p">)</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">groundinfo</span><span class="p">(</span><span class="n">ground_data</span><span class="p">)</span>
+
+<span class="n">ground_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">ground_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># calculating ground stress and depth of each layer. Returns &#39;ground_table&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">hapy.shallow_foundation</span> <span class="kn">import</span> <span class="n">shallow_footing</span> <span class="k">as</span> <span class="n">sf</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">(</span><span class="n">ground_table</span><span class="p">,</span> <span class="n">u_mid</span><span class="p">,</span> <span class="n">depth_top</span><span class="p">,</span><span class="n">depth_bottom</span><span class="p">,</span> <span class="n">sig_vo_ef</span><span class="p">,</span> <span class="n">sig_vo_mid</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span>  <span class="n">layer_thickness</span><span class="p">,</span> <span class="n">midpoint_depth_below_footing</span><span class="p">,</span> <span class="n">AASHTO_C</span><span class="p">)</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">groundinfo</span><span class="p">(</span><span class="n">ground_data</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">ground_table</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;hapy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="footing-calculation">
+<h2>Footing Calculation<a class="headerlink" href="#footing-calculation" title="Permalink to this headline">¶</a></h2>
+<p>Goemetries of footing.</p>
+<a class="reference internal image-reference" href="../_images/footing_fig.jpg"><img alt="../_images/footing_fig.jpg" class="align-center" src="../_images/footing_fig.jpg" style="width: 350px;" /></a>
+<p>Click “+” to view figure if it is not shown.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Click the button to view the geometries of footing!</p>
+<p>{image} images/footing_fig.jpg
+:alt: footing dimension
+:width: 350px
+:align: center</p>
+</div>
+<div class="alert alert-warning" role="alert">
+<p>Manually change the value of the footing geometries in this section. Then click “run” to import the data in this section to the program.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">footing_width</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># B, unit: ft</span>
+<span class="n">footing_length</span> <span class="o">=</span> <span class="mi">45</span>  <span class="c1"># L, unit: ft</span>
+<span class="n">cal_x</span> <span class="o">=</span> <span class="n">footing_length</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">cal_y</span> <span class="o">=</span> <span class="n">footing_width</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">influence_z</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">footing_width</span>  <span class="c1"># depth of influence, 2*W for squrare footing, 6*W for infinite footing.</span>
+
+<span class="c1"># footing load</span>
+<span class="n">load</span> <span class="o">=</span> <span class="mf">84.1</span>  <span class="c1"># unit: ksf</span>
+<span class="n">req_load</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># unit: kips</span>
+<span class="n">stress</span> <span class="o">=</span> <span class="mf">0.521</span>  <span class="c1"># unit: ksf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-success" role="alert">
+<p>Footing calculation. The outputs is printed below. The calculation based upon Newmark’s solution of the Boussinesq Equation.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">boussinesq_table</span><span class="p">,</span> <span class="n">actual_depth</span><span class="p">,</span> <span class="n">l_b_center_q</span><span class="p">)</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">boussinesq_cal</span><span class="p">(</span><span class="n">ground_data</span><span class="p">,</span> <span class="n">footing_width</span><span class="p">,</span> <span class="n">footing_length</span><span class="p">,</span> <span class="n">cal_x</span><span class="p">,</span> <span class="n">cal_y</span><span class="p">,</span><span class="n">depth_top</span><span class="p">,</span> 
+               <span class="n">depth_bottom</span><span class="p">,</span><span class="n">layer_thickness</span><span class="p">,</span> <span class="n">midpoint_depth_below_footing</span><span class="p">,</span> <span class="n">load</span><span class="p">)</span>
+
+<span class="n">boussinesq_table</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-success" role="alert">
+<p>Plot the geostatic stress distribution, excessive stress distribution, the table of ground condition, and the table of footing dimensions to the Haley Aldrich template.</p>
+</div><div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hapy.plotting</span> <span class="kn">import</span> <span class="n">HCFigure</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+  
+
+<span class="n">asdf</span> <span class="o">=</span> <span class="n">HCFigure</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;ha&#39;</span><span class="p">,</span>
+              <span class="n">title</span><span class="o">=</span><span class="s2">&quot;HA-204 PRELIMINARY SETTLEMENT </span><span class="se">\n</span><span class="s2">DUE TO NEW FILL&quot;</span><span class="p">,</span>
+              <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Cal&#39;</span><span class="p">,</span>
+              <span class="n">date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
+              <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span>
+              <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mf">8.5</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+              <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;p&#39;</span><span class="p">,</span>
+              <span class="n">city</span><span class="o">=</span><span class="s1">&#39;Sparrows Point&#39;</span><span class="p">,</span>
+              <span class="n">state</span><span class="o">=</span><span class="s1">&#39;Maryland&#39;</span><span class="p">,</span>
+              <span class="n">sitename</span><span class="o">=</span><span class="s1">&#39;aes Sparrows point Lng Terminal&#39;</span><span class="p">,</span>
+              <span class="n">prjnum</span><span class="o">=</span><span class="s1">&#39;XXXX-XX&#39;</span><span class="p">,</span>
+              <span class="n">prjname</span><span class="o">=</span><span class="s1">&#39;Sparrows Point LNG&#39;</span><span class="p">,</span>
+              <span class="n">fignum</span><span class="o">=</span><span class="s1">&#39;32907-260&#39;</span><span class="p">,</span>
+                <span class="c1"># do not number bullet points of notes</span>
+              <span class="n">note</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;REF: ELASTIC SOLUTIONS FOR SOIL AND ROCK MECHANICS, BY H.G. POULOS &amp; E.H. DAVIS&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;REF: AN INTRODUCTION TO GEOTECHNICAL ENGINEERING, BY R.D. HOLTZ &amp; W.D. KOVACS&quot;</span><span class="p">]</span>
+              <span class="p">)</span>
+
+<span class="c1"># Plot geostatic stress distribution</span>
+<span class="n">loadAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.28</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span> <span class="c1"># define the position of ground stress plot</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_mid</span><span class="p">,</span> <span class="n">depth_top</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;water pressure&#39;</span><span class="p">)</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sig_vo_ef</span><span class="p">,</span> <span class="n">depth_top</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;effective stress&#39;</span><span class="p">)</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sig_vo_mid</span><span class="p">,</span> <span class="n">depth_top</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;total stress&#39;</span><span class="p">)</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">loadAx</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Geostatic stress (pcf)&#39;</span><span class="p">)</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Depth (ft)&#39;</span><span class="p">)</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># plot vertical excessive stress distribution</span>
+<span class="n">stressAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.28</span><span class="p">,</span> <span class="mf">0.46</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span> <span class="c1"># define the position of plot</span>
+<span class="n">stressAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">l_b_center_q</span><span class="p">,</span> <span class="n">depth_top</span><span class="p">)</span>
+<span class="n">stressAx</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">stressAx</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># stressAx.set_xlim(stressAx.get_xlim()[::-1])</span>
+<span class="n">stressAx</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Applied Stress (psf)&#39;</span><span class="p">)</span>
+<span class="n">stressAx</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Depth (ft)&#39;</span><span class="p">)</span>
+<span class="n">stressAx</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># plot the tables of ground and footing information</span>
+<span class="n">tableAx1</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.28</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">tableAx1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">tableAx1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">tableAx1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Surface &amp; Groundwater Conditions&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">temp_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;surface_elevation&quot;</span><span class="p">],</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;ground_water_depth&quot;</span><span class="p">],</span>
+                          <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;surcharge_weight&quot;</span><span class="p">],</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;overburden_load&quot;</span><span class="p">]])</span>
+<span class="n">tableAx1</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span> <span class="o">=</span> <span class="n">temp_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">rowLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;surface elevation (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;ground water depth (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;Density of overburden (pcf)&quot;</span><span class="p">,</span><span class="s2">&quot;overburden load (ksf)&quot;</span><span class="p">],</span>
+        <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+        <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot the tables of ground and footing information</span>
+<span class="n">tableAx2</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">tableAx2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">tableAx2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">tableAx2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Footing DImensions&#39;</span><span class="p">)</span>
+<span class="n">temp_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_shape&quot;</span><span class="p">],</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_embedment&quot;</span><span class="p">],</span>
+                          <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_width&quot;</span><span class="p">],</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_length&quot;</span><span class="p">]])</span>
+<span class="n">tableAx2</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span> <span class="o">=</span> <span class="n">temp_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">rowLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Footing shape&quot;</span><span class="p">,</span><span class="s2">&quot;Embedment, $D_r$ (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;Footing width, B (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;Footing length, L (ft)&quot;</span><span class="p">],</span>
+        <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+        <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="n">asdf</span><span class="o">.</span><span class="n">add_text</span><span class="p">()</span>
+<span class="n">asdf</span><span class="o">.</span><span class="n">saveHCFigure</span><span class="p">(</span><span class="s2">&quot;soil_profile_page.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="settlement-calculation">
+<h2>Settlement Calculation<a class="headerlink" href="#settlement-calculation" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success" role="alert">
+<p>Calculate compression of each layer by following Hough, AASHTO, and WSDOT method. Click “+” to check the calculating progress. The total settlement result will be plotted with footing bearing capacity.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">settlement_table</span><span class="p">,</span> <span class="n">dh_total_aashto</span><span class="p">,</span> <span class="n">dh_total_wsdot</span><span class="p">)</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">footing_settle</span><span class="p">(</span><span class="n">ground_data</span><span class="p">,</span> <span class="n">depth_top</span><span class="p">,</span> <span class="n">depth_bottom</span><span class="p">,</span> <span class="n">midpoint_depth_below_footing</span><span class="p">,</span>
+                    <span class="n">actual_depth</span><span class="p">,</span> <span class="n">layer_thickness</span><span class="p">,</span> <span class="n">AASHTO_C</span><span class="p">,</span> <span class="n">sig_vo_ef</span><span class="p">,</span> <span class="n">l_b_center_q</span><span class="p">)</span>
+
+<span class="n">settlement_table</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bearing-capacity-mult-scenario">
+<h2>Bearing Capacity Mult Scenario<a class="headerlink" href="#bearing-capacity-mult-scenario" title="Permalink to this headline">¶</a></h2>
+<p>Input soil’s properties. The bearing capacity factors can be found according to the following figure (fig 10.6.3.1.2a-1).</p>
+<a class="reference internal image-reference" href="../_images/bearing_capacity_fig.jpg"><img alt="../_images/bearing_capacity_fig.jpg" class="align-center" src="../_images/bearing_capacity_fig.jpg" style="width: 350px;" /></a>
+<p>Click “+” to view figure if it is not shown.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Click the button to view the bearing capacity factor figure.</p>
+<p>{image} images/bearing_capacity_fig.jpg
+:alt: footing dimension
+:width: 350px
+:align: center</p>
+</div>
+<p>The above figure is digitized and approximated by polynomial trend line. User can following the formulas to calculate the value of parameters. This program does not provide automatical calculation, although it is easy to implement. The major reason is that human judgement is very necessary to choose the layer for bearing capacity calcualtion. For example, top layer is strong, but the embedment is very close to the 2nd layer and the 2nd layer is weak. In this case, it might be necessary for user to use the properties of the 2nd layer for calculation.</p>
+<a class="reference internal image-reference" href="../_images/bearing_capacity_poly_fig.jpg"><img alt="../_images/bearing_capacity_poly_fig.jpg" class="align-center" src="../_images/bearing_capacity_poly_fig.jpg" style="width: 600px;" /></a>
+<p>Click “+” to view figure if it is not shown.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Click the button to view the polynomial functions of  bearing capacity factor figure.</p>
+<p>{image} images/bearing_capacity_poly_fig.jpg
+:alt: footing dimension
+:width: 600px
+:align: center</p>
+</div>
+<div class="alert alert-warning" role="alert">
+<p>Type in geometries and the parameters manually. Then click “run” to input data to the program.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bearing capacity factors</span>
+<span class="n">n_c</span> <span class="o">=</span> <span class="mf">35.5</span>
+<span class="n">n_q</span> <span class="o">=</span> <span class="mf">23.2</span>
+<span class="n">n_y</span> <span class="o">=</span> <span class="mf">30.2</span> 
+
+<span class="n">slope</span> <span class="o">=</span> <span class="s1">&#39;yes&#39;</span>  <span class="c1"># or = &#39;no&#39;</span>
+
+<span class="n">friction_angle</span> <span class="o">=</span> <span class="mi">32</span>  <span class="c1"># unit: degrees</span>
+<span class="n">cohesion</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># unit: psf</span>
+<span class="n">soil_weight_above_gwt</span> <span class="o">=</span> <span class="mi">120</span>  <span class="c1"># unit: pcf</span>
+<span class="n">foundation_depth</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># unit: ft</span>
+<span class="n">depth_to_gwt</span> <span class="o">=</span> <span class="mi">42</span>  <span class="c1"># unit: ft</span>
+
+<span class="n">lower_bound_of_length</span> <span class="o">=</span> <span class="mi">45</span>  <span class="c1"># footing dimensions. Used for searching best L*B</span>
+<span class="n">lower_bound_of_width</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">varies_of_length</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">varies_of_width</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">upper_bound_of_length</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">upper_bound_of_width</span> <span class="o">=</span> <span class="mi">23</span>
+
+<span class="n">streng_ls</span> <span class="o">=</span> <span class="mf">0.65</span>  <span class="c1"># strength limit state (Table 10.5.5.2.1-1)</span>
+<span class="n">ex_ls</span> <span class="o">=</span> <span class="mf">0.9</span>  <span class="c1"># extreme event limit state (WSDOT GDM)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result of bearing capacity calculation is shown below. Click “+” button to check the detailed procedures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculating the bearing capacity</span>
+<span class="p">(</span><span class="n">bearing_table</span><span class="p">,</span> <span class="n">f_b</span><span class="p">,</span> <span class="n">strength_limit_state</span><span class="p">,</span> <span class="n">extreme_event_limit_state</span><span class="p">)</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span> <span class="n">bearing_capacity</span><span class="p">(</span><span class="n">lower_bound_of_width</span><span class="p">,</span> <span class="n">upper_bound_of_width</span><span class="p">,</span> <span class="n">varies_of_width</span><span class="p">,</span>
+                     <span class="n">lower_bound_of_length</span><span class="p">,</span> <span class="n">upper_bound_of_length</span><span class="p">,</span> <span class="n">varies_of_length</span><span class="p">,</span>
+                     <span class="n">slope</span><span class="p">,</span> <span class="n">friction_angle</span><span class="p">,</span> <span class="n">cohesion</span><span class="p">,</span> <span class="n">soil_weight_above_gwt</span><span class="p">,</span>
+                     <span class="n">foundation_depth</span><span class="p">,</span> <span class="n">depth_to_gwt</span><span class="p">,</span> <span class="n">streng_ls</span><span class="p">,</span> <span class="n">ex_ls</span><span class="p">,</span> <span class="n">n_c</span><span class="p">,</span> <span class="n">n_q</span><span class="p">,</span> <span class="n">n_y</span><span class="p">)</span>   
+
+<span class="n">bearing_table</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot bearing capacity result to figure template</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hapy.plotting</span> <span class="kn">import</span> <span class="n">HCFigure</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+  
+
+<span class="n">asdf</span> <span class="o">=</span> <span class="n">HCFigure</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;ha&#39;</span><span class="p">,</span>
+              <span class="n">title</span><span class="o">=</span><span class="s2">&quot;HA-204 PRELIMINARY SETTLEMENT </span><span class="se">\n</span><span class="s2">DUE TO NEW FILL&quot;</span><span class="p">,</span>
+              <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Cal&#39;</span><span class="p">,</span>
+              <span class="n">date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
+              <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span>
+              <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mf">8.5</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+              <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;l&#39;</span><span class="p">,</span>
+              <span class="n">city</span><span class="o">=</span><span class="s1">&#39;Sparrows Point&#39;</span><span class="p">,</span>
+              <span class="n">state</span><span class="o">=</span><span class="s1">&#39;Maryland&#39;</span><span class="p">,</span>
+              <span class="n">sitename</span><span class="o">=</span><span class="s1">&#39;aes Sparrows point Lng Terminal&#39;</span><span class="p">,</span>
+              <span class="n">prjnum</span><span class="o">=</span><span class="s1">&#39;XXXX-XX&#39;</span><span class="p">,</span>
+              <span class="n">prjname</span><span class="o">=</span><span class="s1">&#39;Sparrows Point LNG&#39;</span><span class="p">,</span>
+              <span class="n">fignum</span><span class="o">=</span><span class="s1">&#39;32907-260&#39;</span><span class="p">,</span>
+                <span class="c1"># do not number bullet points of notes</span>
+              <span class="n">note</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Settlement estimates calculated based on Hough (1959). Soil layering and groundwater profile based on individual samples reported in boring XXXXX. Depth to bearing is approximately XXX feet from existing ground surface.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Footing assumed to be bearing on very dense granular soils at an elevation of XX feet (X feet below existing grade).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;We have assumed no liquefaction occurs.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Footing length and width assumed to be equal (i.e. square footing). -OR- Footing length assumed constant at XX feet (i.e. rectangular footing).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;The effective footing width for bearing pressure shall be calculated according to Section 6.4 of FHWA-SA-02-024 Geotechnical Engineering Circular No. 5 Shallow Foundations.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;These recommendations are preliminary results only and are subject to change pending final evaluations of ESUs and site geometry.&quot;</span>
+                    <span class="p">]</span>
+              <span class="p">)</span>
+
+<span class="c1"># Plot geostatic stress distribution</span>
+<span class="n">bearAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span> <span class="c1"># define the position of ground stress plot</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f_b</span><span class="p">,</span> <span class="n">strength_limit_state</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Strength limit state&#39;</span><span class="p">)</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f_b</span><span class="p">,</span> <span class="n">extreme_event_limit_state</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;extreme_event_limit_state&#39;</span><span class="p">)</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Effective Footing Width, B (Feet)&#39;</span><span class="p">)</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Factored Bearing Capacity (ksf)&#39;</span><span class="p">)</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># plot the tables of footing information</span>
+<span class="n">footAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.67</span><span class="p">,</span> <span class="mf">0.61</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">footAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">footAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">footAx</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Footing information&#39;</span><span class="p">)</span>
+<span class="n">temp_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">footing_width</span><span class="p">,</span> <span class="n">footing_length</span><span class="p">,</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_embedment&quot;</span><span class="p">],</span><span class="n">cal_x</span><span class="p">,</span> <span class="n">cal_y</span><span class="p">,</span> <span class="n">influence_z</span><span class="p">])</span>
+                        
+<span class="n">footAx</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span> <span class="o">=</span> <span class="n">temp_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">rowLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Width, B (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;Length, L (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;Embedment, $D_r$ (ft)&quot;</span><span class="p">,</span> <span class="s2">&quot;L/2 (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;B/2 (ft)&quot;</span><span class="p">,</span> <span class="s2">&quot;Influence Dept (ft)&quot;</span><span class="p">],</span>
+        <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+        <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot the tables of applied footing stress</span>
+<span class="n">footStAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.67</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">footStAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">footStAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">footStAx</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Applied footing stress&#39;</span><span class="p">)</span>
+<span class="n">temp_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">load</span><span class="p">,</span> <span class="n">req_load</span><span class="p">,</span> <span class="n">stress</span><span class="p">])</span>
+                        
+<span class="n">footStAx</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span> <span class="o">=</span> <span class="n">temp_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">rowLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Load, q (ksf)&quot;</span><span class="p">,</span><span class="s2">&quot;Req&#39;d load (kips)&quot;</span><span class="p">,</span><span class="s2">&quot;Stress, q (ksf)&quot;</span><span class="p">],</span>
+        <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+        <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot the tables of total settlement at base of footing</span>
+<span class="n">totalsettleAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.67</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">])</span>
+<span class="n">totalsettleAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">totalsettleAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">totalsettleAx</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Total Settlement at Base of Footing&#39;</span><span class="p">)</span>
+<span class="n">temp_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="nb">round</span><span class="p">(</span><span class="n">dh_total_wsdot</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">dh_total_aashto</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">)])</span>
+                        
+<span class="n">totalsettleAx</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span> <span class="o">=</span> <span class="n">temp_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">rowLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;$\Sigma \Delta H_i$ , WSDOT&quot;</span><span class="p">,</span><span class="s2">&quot;$\Sigma \Delta H_i$ , AASHTO&quot;</span><span class="p">],</span>
+        <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+        <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+
+<span class="n">asdf</span><span class="o">.</span><span class="n">add_text</span><span class="p">()</span>
+<span class="n">asdf</span><span class="o">.</span><span class="n">saveHCFigure</span><span class="p">(</span><span class="s2">&quot;bearing_capacity.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./geotechnics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="emabank_settlement.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Settlement Calculations of Embankments new</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="spt_interpolation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SPT Data Process</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By PPH Industries, Inc.<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
