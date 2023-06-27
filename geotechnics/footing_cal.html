@@ -1,0 +1,2058 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bearing Capacity of Shallow Foundations &#8212; PyPPG Handbook (HADES)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Content with notebooks" href="notebooks.html" />
+    <link rel="prev" title="Settlement Calculations of Embankments" href="vert_test.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/PPG_Logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">PyPPG Handbook (HADES)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Geotechnics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="emabank_settlement.html">
+   Settlement Calculations of Embankments new
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="footing_bearing_capacity.html">
+   Bearing Capacity of Shallow Foundations new
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="spt_interpolation.html">
+   SPT Data Process
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vert_test.html">
+   Settlement Calculations of Embankments
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Bearing Capacity of Shallow Foundations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Small Jobs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../small_jobs/2021-0802_Zach_Gardner.html">
+   2021-0802 Zach Gardner
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/geotechnics/footing_cal.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/geotechnics/footing_cal.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="http://20.228.164.26/hub/user-redirect/git-pull?repo=https://github.com/hehezid/pyppg-handbook&urlpath=lab/tree/pyppg-handbook/handbook/geotechnics/footing_cal.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ground-profile">
+   Ground Profile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#footing-calculation">
+   Footing Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settlement-calculation">
+   Settlement Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bearing-capacity-mult-scenario">
+   Bearing Capacity Mult Scenario
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Bearing Capacity of Shallow Foundations</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ground-profile">
+   Ground Profile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#footing-calculation">
+   Footing Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settlement-calculation">
+   Settlement Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bearing-capacity-mult-scenario">
+   Bearing Capacity Mult Scenario
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="bearing-capacity-of-shallow-foundations">
+<h1>Bearing Capacity of Shallow Foundations<a class="headerlink" href="#bearing-capacity-of-shallow-foundations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ground-profile">
+<h2>Ground Profile<a class="headerlink" href="#ground-profile" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-warning" role="alert">
+  Input grond informations. User needs to manully type the information of each layer into the "layer" section below. Each pair of "{...}" stores the information of one layer. The layer information should be input sequentially from top to bottom. User can remove or add layers as needed by deleting or adding "{...}". Then click "Run" to import data to theis Python program. 
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">ground_info</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;ground_elevation&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+  <span class="s2">&quot;slope_a&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+  <span class="s2">&quot;surface_elevation&quot;</span><span class="p">:</span> <span class="mi">67</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+  <span class="s2">&quot;surcharge_weight&quot;</span><span class="p">:</span> <span class="mi">125</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+  <span class="s2">&quot;ground_water_depth&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+    <span class="s2">&quot;overburden_load&quot;</span><span class="p">:</span> <span class="mf">0.250</span><span class="p">,</span>  <span class="c1"># unit: ksf</span>
+    <span class="s2">&quot;footing_shape&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">,</span> <span class="c1"># or circular</span>
+    <span class="s2">&quot;footing_embedment&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+    <span class="s2">&quot;footing_width&quot;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+    <span class="s2">&quot;footing_length&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>  <span class="c1"># unit: ft</span>
+    
+    <span class="c1">## soil_type can only be chosen from supported types: </span>
+    <span class="c1"># &quot;inorganic silt&quot; , &quot;well graded fine to medium silty sand&quot; , &quot;clean well graded fine to coarse sand&quot; </span>
+    <span class="c1"># &quot;well graded silty sand &amp; gravel&quot; , &quot;well graded silty sand &amp; gravel&quot; , &quot;clean uniform medium sand&quot;    </span>
+   
+   <span class="c1"># type layer information to this section </span>
+  <span class="s2">&quot;layers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">67</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mf">64.5</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">55</span><span class="p">},</span>
+
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3C&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mf">64.5</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">135</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">38</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3C&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mf">59.5</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">135</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3C&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mf">59.5</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">57</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">135</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">45</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">57</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">52</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">58</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">52</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">47</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">47</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">75</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">27</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">27</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">55</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+    <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4C&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">70</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">23</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">23</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">33</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">78</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4C&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">33</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">38</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">47</span><span class="p">},</span>
+      
+      <span class="p">{</span><span class="s2">&quot;ESU&quot;</span><span class="p">:</span><span class="s2">&quot;4D&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">38</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">43</span><span class="p">,</span> <span class="s2">&quot;soil_type&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic silt&quot;</span><span class="p">,</span> 
+     <span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">},</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ground_info.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">ground_info</span> <span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Preliminary calculation to prepare data such as the depth and the thickness of each layer, and the vertical stress distribution for later calculation. The data is shown in the form of dataframe. The DataFrame allows to present data and results in a spreadsheet-like way. User can call the data in cell by typing <code class="docutils literal notranslate"><span class="pre">table_name.loc[row_number][column_lable]</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">ground_table.loc[1]['AASHTO_N1']</span></code> returns value <code class="docutils literal notranslate"><span class="pre">38</span></code>. Notice that the order of rows starts from zero.</p>
+<div class="alert alert-success" role="alert">
+  The preliminary calculation is finished. Click "+" to see the detailed progress.
+</div><div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;ground_info.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    <span class="n">ground_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
+<span class="n">layer_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">])</span>
+
+<span class="n">ESU</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">top</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">bottom</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">soil_type</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">sat_unit_weight</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">AASHTO_N1</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">layer_num</span><span class="p">):</span>
+    <span class="n">ESU</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;ESU&quot;</span><span class="p">])</span>
+    <span class="n">top</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;top&quot;</span><span class="p">])</span>
+    <span class="n">bottom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;bottom&quot;</span><span class="p">])</span>
+    <span class="n">soil_type</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;soil_type&quot;</span><span class="p">])</span>
+    <span class="n">sat_unit_weight</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">])</span>
+    <span class="n">AASHTO_N1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">])</span>
+
+<span class="n">temp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ESU&#39;</span><span class="p">:</span> <span class="n">ESU</span><span class="p">,</span>
+        <span class="s1">&#39;top&#39;</span><span class="p">:</span><span class="n">top</span><span class="p">,</span><span class="s1">&#39;bottom&#39;</span><span class="p">:</span><span class="n">bottom</span><span class="p">,</span>
+        <span class="s1">&#39;soil_type&#39;</span><span class="p">:</span><span class="n">soil_type</span><span class="p">,</span>  
+        <span class="s1">&#39;$\gamma_</span><span class="si">{sat}</span><span class="s1">$&#39;</span><span class="p">:</span><span class="n">sat_unit_weight</span><span class="p">,</span> 
+        <span class="s1">&#39;AASHTO_N1&#39;</span><span class="p">:</span><span class="n">AASHTO_N1</span><span class="p">}</span>
+<span class="n">ground_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+
+
+<span class="c1">## complete geometric information. e.g., depth of layer_top and layer_bottom, and the thickness of this layer</span>
+
+<span class="n">top_e</span> <span class="o">=</span> <span class="n">top</span>  <span class="c1"># top profile after excavation</span>
+<span class="k">if</span> <span class="n">top_e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;surface_elevation&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_embedment&quot;</span><span class="p">]):</span>
+    <span class="n">top_e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;surface_elevation&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_embedment&quot;</span><span class="p">])</span>
+
+<span class="n">depth_top</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">depth_bottom</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">midpoint_depth_below_footing</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">layer_thickness</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">sig_vo_bot</span> <span class="o">=</span><span class="p">[]</span>
+<span class="n">sig_vo_mid</span> <span class="o">=</span><span class="p">[]</span>
+<span class="n">u_mid</span><span class="o">=</span><span class="p">[]</span>  <span class="c1"># water pressure </span>
+<span class="n">sig_vo_ef</span><span class="o">=</span><span class="p">[]</span>  <span class="c1"># effective stress at the mid of layer</span>
+<span class="n">AASHTO_C</span><span class="o">=</span><span class="p">[]</span>  <span class="c1"># AASHTO Fig 10.6.2.4.2-1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">layer_num</span><span class="p">):</span>
+    <span class="n">depth_top</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;surface_elevation&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;top&quot;</span><span class="p">])</span>
+    <span class="n">depth_top</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_embedment&quot;</span><span class="p">]</span>
+    <span class="n">depth_bottom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;surface_elevation&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;bottom&quot;</span><span class="p">])</span>
+    <span class="n">midpoint_depth_below_footing</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;surface_elevation&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_embedment&quot;</span><span class="p">])</span><span class="o">-</span>
+                                       <span class="p">(</span><span class="n">top_e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">bottom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">layer_thickness</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">top_e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">bottom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">sig_vo_bot</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">top_e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">bottom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">]</span><span class="o">+</span>
+                          <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;overburden_load&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="n">sig_vo_mid</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">top_e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">bottom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">]</span><span class="o">+</span>
+                          <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;overburden_load&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sig_vo_bot</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">top_e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">bottom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">sig_vo_bot</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">sig_vo_mid</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">top_e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">bottom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;sat_unit_weight&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">sig_vo_bot</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">depth_top</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">midpoint_depth_below_footing</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">&lt;</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;ground_water_depth&quot;</span><span class="p">]:</span>
+        <span class="n">u_mid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">u_mid</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">depth_top</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">midpoint_depth_below_footing</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;ground_water_depth&quot;</span><span class="p">])</span><span class="o">*</span><span class="mf">62.4</span><span class="p">)</span>
+        
+    <span class="n">sig_vo_ef</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sig_vo_mid</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">u_mid</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># calculate AASHTO coefficients base on 10.6.2.4.2-1</span>
+    <span class="k">if</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;soil_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;inorganic silt&quot;</span><span class="p">:</span>
+        <span class="n">k</span><span class="o">=</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">]</span>
+        <span class="n">AASHTO_C</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mf">0.0021</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">1.243</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mf">16.086</span><span class="p">,</span> <span class="mi">161</span><span class="p">),</span> <span class="mi">22</span><span class="p">))</span>    
+    <span class="k">elif</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;soil_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;well graded fine to medium silty sand&quot;</span><span class="p">:</span>
+        <span class="n">k</span><span class="o">=</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">]</span>
+        <span class="n">AASHTO_C</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mf">0.0084</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">1.3993</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mf">27.227</span><span class="p">,</span> <span class="mi">252</span><span class="p">),</span> <span class="mi">34</span><span class="p">))</span> 
+    <span class="k">elif</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;soil_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;clean well graded fine to coarse sand&quot;</span><span class="p">:</span>
+        <span class="n">k</span><span class="o">=</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">]</span>
+        <span class="n">AASHTO_C</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mf">0.0222</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">0.8951</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mf">40.01</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="mi">38</span><span class="p">))</span>         
+    <span class="k">elif</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;soil_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">:</span>
+        <span class="n">k</span><span class="o">=</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">]</span>
+        <span class="n">AASHTO_C</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mf">0.0325</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">0.9584</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mf">42.552</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="mi">42</span><span class="p">))</span>     
+    <span class="k">elif</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;soil_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;well graded silty sand &amp; gravel&quot;</span><span class="p">:</span>
+        <span class="n">k</span><span class="o">=</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">]</span>
+        <span class="n">AASHTO_C</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mf">0.0325</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">0.9584</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mf">42.552</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="mi">42</span><span class="p">))</span>  
+    <span class="k">elif</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;soil_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;clean uniform medium sand&quot;</span><span class="p">:</span>
+        <span class="n">k</span><span class="o">=</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">]</span>
+        <span class="n">AASHTO_C</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mf">0.0718</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">0.4088</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mf">48.84</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="mi">47</span><span class="p">))</span>  
+        
+<span class="c1"># merge data to dataframe</span>
+<span class="n">ground_table</span><span class="p">[</span><span class="s1">&#39;depth_top&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">depth_top</span>
+<span class="n">ground_table</span><span class="p">[</span><span class="s1">&#39;depth_bottom&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">depth_bottom</span>
+<span class="n">ground_table</span><span class="p">[</span><span class="s1">&#39;z_mid&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">midpoint_depth_below_footing</span>
+<span class="n">ground_table</span><span class="p">[</span><span class="s1">&#39;layer_thickness&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">layer_thickness</span>
+<span class="n">ground_table</span><span class="p">[</span><span class="s1">&#39;sig_vo_bot&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">sig_vo_bot</span>
+<span class="n">ground_table</span><span class="p">[</span><span class="s1">&#39;sig_vo_mid&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">sig_vo_mid</span>
+<span class="n">ground_table</span><span class="p">[</span><span class="s1">&#39;u_mid&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">u_mid</span>
+<span class="n">ground_table</span><span class="p">[</span><span class="s1">&#39;sig_vo_ef&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">sig_vo_ef</span>
+<span class="n">ground_table</span><span class="p">[</span><span class="s1">&#39;AASHTO_C&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">AASHTO_C</span>
+
+<span class="n">ground_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ESU</th>
+      <th>top</th>
+      <th>bottom</th>
+      <th>soil_type</th>
+      <th>$\gamma_{sat}$</th>
+      <th>AASHTO_N1</th>
+      <th>depth_top</th>
+      <th>depth_bottom</th>
+      <th>z_mid</th>
+      <th>layer_thickness</th>
+      <th>sig_vo_bot</th>
+      <th>sig_vo_mid</th>
+      <th>u_mid</th>
+      <th>sig_vo_ef</th>
+      <th>AASHTO_C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3D</td>
+      <td>67.0</td>
+      <td>64.5</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>140</td>
+      <td>55</td>
+      <td>2.0</td>
+      <td>2.5</td>
+      <td>0.25</td>
+      <td>0.5</td>
+      <td>320.0</td>
+      <td>285.00</td>
+      <td>0.0</td>
+      <td>285.00</td>
+      <td>193.5765</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3C</td>
+      <td>64.5</td>
+      <td>62.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>135</td>
+      <td>38</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.75</td>
+      <td>2.5</td>
+      <td>657.5</td>
+      <td>488.75</td>
+      <td>0.0</td>
+      <td>488.75</td>
+      <td>125.9012</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3C</td>
+      <td>62.0</td>
+      <td>59.5</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>135</td>
+      <td>42</td>
+      <td>5.0</td>
+      <td>7.5</td>
+      <td>4.25</td>
+      <td>2.5</td>
+      <td>995.0</td>
+      <td>826.25</td>
+      <td>0.0</td>
+      <td>826.25</td>
+      <td>140.1348</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3C</td>
+      <td>59.5</td>
+      <td>57.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>135</td>
+      <td>45</td>
+      <td>7.5</td>
+      <td>10.0</td>
+      <td>6.75</td>
+      <td>2.5</td>
+      <td>1332.5</td>
+      <td>1163.75</td>
+      <td>0.0</td>
+      <td>1163.75</td>
+      <td>151.4925</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3D</td>
+      <td>57.0</td>
+      <td>52.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>140</td>
+      <td>58</td>
+      <td>10.0</td>
+      <td>15.0</td>
+      <td>10.50</td>
+      <td>5.0</td>
+      <td>2032.5</td>
+      <td>1682.50</td>
+      <td>0.0</td>
+      <td>1682.50</td>
+      <td>207.4692</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3D</td>
+      <td>52.0</td>
+      <td>47.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>140</td>
+      <td>100</td>
+      <td>15.0</td>
+      <td>20.0</td>
+      <td>15.50</td>
+      <td>5.0</td>
+      <td>2732.5</td>
+      <td>2382.50</td>
+      <td>0.0</td>
+      <td>2382.50</td>
+      <td>300.0000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3D</td>
+      <td>47.0</td>
+      <td>42.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>140</td>
+      <td>100</td>
+      <td>20.0</td>
+      <td>25.0</td>
+      <td>20.50</td>
+      <td>5.0</td>
+      <td>3432.5</td>
+      <td>3082.50</td>
+      <td>0.0</td>
+      <td>3082.50</td>
+      <td>300.0000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>3D</td>
+      <td>42.0</td>
+      <td>37.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>140</td>
+      <td>75</td>
+      <td>25.0</td>
+      <td>30.0</td>
+      <td>25.50</td>
+      <td>5.0</td>
+      <td>4132.5</td>
+      <td>3782.50</td>
+      <td>0.0</td>
+      <td>3782.50</td>
+      <td>297.2445</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>3D</td>
+      <td>37.0</td>
+      <td>32.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>130</td>
+      <td>100</td>
+      <td>30.0</td>
+      <td>35.0</td>
+      <td>30.50</td>
+      <td>5.0</td>
+      <td>4782.5</td>
+      <td>4457.50</td>
+      <td>0.0</td>
+      <td>4457.50</td>
+      <td>300.0000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>3D</td>
+      <td>32.0</td>
+      <td>27.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>130</td>
+      <td>100</td>
+      <td>35.0</td>
+      <td>40.0</td>
+      <td>35.50</td>
+      <td>5.0</td>
+      <td>5432.5</td>
+      <td>5107.50</td>
+      <td>0.0</td>
+      <td>5107.50</td>
+      <td>300.0000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>3D</td>
+      <td>27.0</td>
+      <td>22.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>130</td>
+      <td>100</td>
+      <td>40.0</td>
+      <td>45.0</td>
+      <td>40.50</td>
+      <td>5.0</td>
+      <td>6082.5</td>
+      <td>5757.50</td>
+      <td>31.2</td>
+      <td>5726.30</td>
+      <td>300.0000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>3D</td>
+      <td>22.0</td>
+      <td>17.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>130</td>
+      <td>55</td>
+      <td>45.0</td>
+      <td>50.0</td>
+      <td>45.50</td>
+      <td>5.0</td>
+      <td>6732.5</td>
+      <td>6407.50</td>
+      <td>343.2</td>
+      <td>6064.30</td>
+      <td>193.5765</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>3D</td>
+      <td>17.0</td>
+      <td>12.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>130</td>
+      <td>100</td>
+      <td>50.0</td>
+      <td>55.0</td>
+      <td>50.50</td>
+      <td>5.0</td>
+      <td>7382.5</td>
+      <td>7057.50</td>
+      <td>655.2</td>
+      <td>6402.30</td>
+      <td>300.0000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>3D</td>
+      <td>12.0</td>
+      <td>7.0</td>
+      <td>well graded silty sand &amp; gravel</td>
+      <td>130</td>
+      <td>100</td>
+      <td>55.0</td>
+      <td>60.0</td>
+      <td>55.50</td>
+      <td>5.0</td>
+      <td>8032.5</td>
+      <td>7707.50</td>
+      <td>967.2</td>
+      <td>6740.30</td>
+      <td>300.0000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>4D</td>
+      <td>7.0</td>
+      <td>2.0</td>
+      <td>inorganic silt</td>
+      <td>130</td>
+      <td>100</td>
+      <td>60.0</td>
+      <td>65.0</td>
+      <td>60.50</td>
+      <td>5.0</td>
+      <td>8682.5</td>
+      <td>8357.50</td>
+      <td>1279.2</td>
+      <td>7078.30</td>
+      <td>161.0000</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>4C</td>
+      <td>2.0</td>
+      <td>-6.0</td>
+      <td>inorganic silt</td>
+      <td>120</td>
+      <td>70</td>
+      <td>65.0</td>
+      <td>73.0</td>
+      <td>67.00</td>
+      <td>8.0</td>
+      <td>9642.5</td>
+      <td>9162.50</td>
+      <td>1684.8</td>
+      <td>7477.70</td>
+      <td>113.3860</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>4D</td>
+      <td>-6.0</td>
+      <td>-8.0</td>
+      <td>inorganic silt</td>
+      <td>130</td>
+      <td>100</td>
+      <td>73.0</td>
+      <td>75.0</td>
+      <td>72.00</td>
+      <td>2.0</td>
+      <td>9902.5</td>
+      <td>9772.50</td>
+      <td>1996.8</td>
+      <td>7775.70</td>
+      <td>161.0000</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>4D</td>
+      <td>-8.0</td>
+      <td>-13.0</td>
+      <td>inorganic silt</td>
+      <td>130</td>
+      <td>100</td>
+      <td>75.0</td>
+      <td>80.0</td>
+      <td>75.50</td>
+      <td>5.0</td>
+      <td>10552.5</td>
+      <td>10227.50</td>
+      <td>2215.2</td>
+      <td>8012.30</td>
+      <td>161.0000</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>4D</td>
+      <td>-13.0</td>
+      <td>-18.0</td>
+      <td>inorganic silt</td>
+      <td>130</td>
+      <td>100</td>
+      <td>80.0</td>
+      <td>85.0</td>
+      <td>80.50</td>
+      <td>5.0</td>
+      <td>11202.5</td>
+      <td>10877.50</td>
+      <td>2527.2</td>
+      <td>8350.30</td>
+      <td>161.0000</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>4D</td>
+      <td>-18.0</td>
+      <td>-23.0</td>
+      <td>inorganic silt</td>
+      <td>130</td>
+      <td>100</td>
+      <td>85.0</td>
+      <td>90.0</td>
+      <td>85.50</td>
+      <td>5.0</td>
+      <td>11852.5</td>
+      <td>11527.50</td>
+      <td>2839.2</td>
+      <td>8688.30</td>
+      <td>161.0000</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>4D</td>
+      <td>-23.0</td>
+      <td>-28.0</td>
+      <td>inorganic silt</td>
+      <td>130</td>
+      <td>100</td>
+      <td>90.0</td>
+      <td>95.0</td>
+      <td>90.50</td>
+      <td>5.0</td>
+      <td>12502.5</td>
+      <td>12177.50</td>
+      <td>3151.2</td>
+      <td>9026.30</td>
+      <td>161.0000</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>4D</td>
+      <td>-28.0</td>
+      <td>-33.0</td>
+      <td>inorganic silt</td>
+      <td>130</td>
+      <td>78</td>
+      <td>95.0</td>
+      <td>100.0</td>
+      <td>95.50</td>
+      <td>5.0</td>
+      <td>13152.5</td>
+      <td>12827.50</td>
+      <td>3463.2</td>
+      <td>9364.30</td>
+      <td>125.8164</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>4C</td>
+      <td>-33.0</td>
+      <td>-38.0</td>
+      <td>inorganic silt</td>
+      <td>120</td>
+      <td>47</td>
+      <td>100.0</td>
+      <td>105.0</td>
+      <td>100.50</td>
+      <td>5.0</td>
+      <td>13752.5</td>
+      <td>13452.50</td>
+      <td>3775.2</td>
+      <td>9677.30</td>
+      <td>79.1459</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>4D</td>
+      <td>-38.0</td>
+      <td>-43.0</td>
+      <td>inorganic silt</td>
+      <td>130</td>
+      <td>42</td>
+      <td>105.0</td>
+      <td>110.0</td>
+      <td>105.50</td>
+      <td>5.0</td>
+      <td>14402.5</td>
+      <td>14077.50</td>
+      <td>4087.2</td>
+      <td>9990.30</td>
+      <td>71.9964</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="footing-calculation">
+<h2>Footing Calculation<a class="headerlink" href="#footing-calculation" title="Permalink to this headline">¶</a></h2>
+<p>Goemetries of footing.</p>
+<a class="reference internal image-reference" href="../_images/footing_fig.jpg"><img alt="footing dimension" class="align-center" src="../_images/footing_fig.jpg" style="width: 350px;" /></a>
+<div class="alert alert-warning" role="alert">
+<p>Manually change the value of the footing geometries in this section. Then click “run” to import the data in this section to the program.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">footing_width</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># B, unit: ft</span>
+<span class="n">footing_length</span> <span class="o">=</span> <span class="mi">45</span>  <span class="c1"># L, unit: ft</span>
+<span class="n">cal_x</span> <span class="o">=</span> <span class="n">footing_length</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">cal_y</span> <span class="o">=</span> <span class="n">footing_width</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">influence_z</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">footing_width</span>  <span class="c1"># depth of influence, 2*W for squrare footing, 6*W for infinite footing.</span>
+
+<span class="c1"># footing load</span>
+<span class="n">load</span> <span class="o">=</span> <span class="mf">84.1</span>  <span class="c1"># unit: ksf</span>
+<span class="n">req_load</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># unit: kips</span>
+<span class="n">stress</span> <span class="o">=</span> <span class="mf">0.521</span>  <span class="c1"># unit: ksf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-success" role="alert">
+<p>Footing calculation. The outputs is printed below. Click the ‘+’ symbol to check the calculation progress. The calculation based upon Newmark’s solution of the Boussinesq Equation.</p>
+</div><div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># empty arraies to store calculation result</span>
+<span class="n">influence_check</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">actual_depth</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">x_z</span><span class="o">=</span><span class="p">[]</span>  <span class="c1"># m = x/z</span>
+<span class="n">y_z</span><span class="o">=</span><span class="p">[]</span>  <span class="c1"># n = y/z</span>
+<span class="n">l_z</span><span class="o">=</span><span class="p">[]</span>  <span class="c1"># footing_length / z</span>
+<span class="n">b_z</span><span class="o">=</span><span class="p">[]</span>  <span class="c1"># footing_width / z</span>
+
+<span class="c1"># influence factor</span>
+<span class="n">l_b_center</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">l_y_edge</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">x_y_corner</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">l_b_edge</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">l_b_corner</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="c1"># load </span>
+<span class="n">l_b_center_q</span><span class="o">=</span><span class="p">[]</span>  <span class="c1"># &#39;q&#39; = I * q  (coefficient * applied load)</span>
+<span class="n">l_y_edge_q</span><span class="o">=</span><span class="p">[]</span>  <span class="c1"># unit: ksf</span>
+<span class="n">x_y_corner_q</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">l_b_edge_q</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">l_b_corner_q</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">layer_num</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">depth_bottom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">influence_z</span><span class="p">:</span>
+        <span class="n">influence_check</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">influence_check</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        
+    <span class="n">actual_depth</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">depth_top</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">depth_bottom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">x_z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cal_x</span><span class="o">/</span><span class="n">midpoint_depth_below_footing</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">y_z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cal_y</span><span class="o">/</span><span class="n">midpoint_depth_below_footing</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">l_z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">footing_length</span><span class="o">/</span><span class="n">midpoint_depth_below_footing</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">b_z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">footing_width</span><span class="o">/</span><span class="n">midpoint_depth_below_footing</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+    <span class="c1"># calculate coefficient at x_y corner</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">x_y_corner</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span>
+        <span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span>
+        <span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x_y_corner</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span>
+        <span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span>
+        <span class="p">(</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">x_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+        
+    <span class="c1"># calculate coefficient at l_b_edge</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">l_b_edge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span>
+        <span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span>
+        <span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">l_b_edge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span>
+        <span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span>
+        <span class="p">(</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">y_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span>
+        
+    <span class="c1"># calculate coefficient at l_b_corner</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">l_b_corner</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span>
+        <span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span>
+        <span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">l_b_corner</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span>
+        <span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span>
+        <span class="p">(</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">l_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">b_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+        
+    <span class="c1"># calculate coefficient at l_y_edge</span>
+    <span class="n">l_y_edge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x_y_corner</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>   
+    
+    <span class="c1"># calculate coefficient at l_b_center</span>
+    <span class="n">l_b_center</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l_y_edge</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+    
+    <span class="c1">#######  footing load  ########</span>
+    <span class="c1"># unit: ksf</span>
+    <span class="n">l_b_center_q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l_b_center</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">load</span><span class="p">)</span>
+    <span class="n">l_y_edge_q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l_y_edge</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">load</span><span class="p">)</span>
+    <span class="n">x_y_corner_q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_y_corner</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">load</span><span class="p">)</span>
+    <span class="n">l_b_edge_q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l_b_edge</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">load</span><span class="p">)</span>
+    <span class="n">l_b_corner_q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l_b_corner</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">load</span><span class="p">)</span>
+    
+<span class="n">temp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;depth_top&#39;</span><span class="p">:</span> <span class="n">depth_top</span><span class="p">,</span>
+        <span class="s1">&#39;depth_bottom&#39;</span><span class="p">:</span><span class="n">depth_bottom</span><span class="p">,</span>
+        <span class="s1">&#39;layer_thickness&#39;</span><span class="p">:</span><span class="n">layer_thickness</span><span class="p">,</span>  
+        <span class="s1">&#39;influence_check&#39;</span><span class="p">:</span><span class="n">influence_check</span><span class="p">,</span> 
+        <span class="s1">&#39;z_mid&#39;</span><span class="p">:</span><span class="n">midpoint_depth_below_footing</span><span class="p">}</span>
+
+<span class="n">boussinesq_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;actual_depth&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">actual_depth</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;m = x/z&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">x_z</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;n = y/z&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">y_z</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;M = L/z&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">l_z</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;N = B/z&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">b_z</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;Center L by B area&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">l_b_center</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;Edge L by y area&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">l_y_edge</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;Corner x by y area&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">x_y_corner</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;Edge L by B area&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">l_b_edge</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;Corner L by B area&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">l_b_corner</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;Center L by B area&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">l_b_center_q</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;Edge L by y area&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">l_y_edge_q</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;Corner x by y area&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">x_y_corner_q</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;Edge L by B area&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">l_b_edge_q</span>
+<span class="n">boussinesq_table</span><span class="p">[</span><span class="s1">&#39;Corner L by B area&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">l_b_corner_q</span>
+
+<span class="n">boussinesq_table</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>depth_top</th>
+      <th>depth_bottom</th>
+      <th>layer_thickness</th>
+      <th>influence_check</th>
+      <th>z_mid</th>
+      <th>actual_depth</th>
+      <th>m = x/z</th>
+      <th>n = y/z</th>
+      <th>M = L/z</th>
+      <th>N = B/z</th>
+      <th>Center L by B area</th>
+      <th>Edge L by y area</th>
+      <th>Corner x by y area</th>
+      <th>Edge L by B area</th>
+      <th>Corner L by B area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.0</td>
+      <td>2.5</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>0.25</td>
+      <td>2.25</td>
+      <td>90.000000</td>
+      <td>60.000000</td>
+      <td>180.000000</td>
+      <td>120.000000</td>
+      <td>84.099805</td>
+      <td>42.049902</td>
+      <td>21.024951</td>
+      <td>42.049916</td>
+      <td>21.024994</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>2.5</td>
+      <td>1</td>
+      <td>1.75</td>
+      <td>3.75</td>
+      <td>12.857143</td>
+      <td>8.571429</td>
+      <td>25.714286</td>
+      <td>17.142857</td>
+      <td>84.034050</td>
+      <td>42.017025</td>
+      <td>21.008512</td>
+      <td>42.021746</td>
+      <td>21.022916</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5.0</td>
+      <td>7.5</td>
+      <td>2.5</td>
+      <td>1</td>
+      <td>4.25</td>
+      <td>6.25</td>
+      <td>5.294118</td>
+      <td>3.529412</td>
+      <td>10.588235</td>
+      <td>7.058824</td>
+      <td>83.220531</td>
+      <td>41.610266</td>
+      <td>20.805133</td>
+      <td>41.674831</td>
+      <td>20.995689</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7.5</td>
+      <td>10.0</td>
+      <td>2.5</td>
+      <td>1</td>
+      <td>6.75</td>
+      <td>8.75</td>
+      <td>3.333333</td>
+      <td>2.222222</td>
+      <td>6.666667</td>
+      <td>4.444444</td>
+      <td>80.978532</td>
+      <td>40.489266</td>
+      <td>20.244633</td>
+      <td>40.727534</td>
+      <td>20.911394</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10.0</td>
+      <td>15.0</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>10.50</td>
+      <td>12.50</td>
+      <td>2.142857</td>
+      <td>1.428571</td>
+      <td>4.285714</td>
+      <td>2.857143</td>
+      <td>74.910195</td>
+      <td>37.455098</td>
+      <td>18.727549</td>
+      <td>38.203792</td>
+      <td>20.628076</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>15.0</td>
+      <td>20.0</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>15.50</td>
+      <td>17.50</td>
+      <td>1.451613</td>
+      <td>0.967742</td>
+      <td>2.903226</td>
+      <td>1.935484</td>
+      <td>63.998709</td>
+      <td>31.999354</td>
+      <td>15.999677</td>
+      <td>33.748813</td>
+      <td>19.911996</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>20.0</td>
+      <td>25.0</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>20.50</td>
+      <td>22.50</td>
+      <td>1.097561</td>
+      <td>0.731707</td>
+      <td>2.195122</td>
+      <td>1.463415</td>
+      <td>52.884314</td>
+      <td>26.442157</td>
+      <td>13.221078</td>
+      <td>29.228375</td>
+      <td>18.848872</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>25.0</td>
+      <td>30.0</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>25.50</td>
+      <td>27.50</td>
+      <td>0.882353</td>
+      <td>0.588235</td>
+      <td>1.764706</td>
+      <td>1.176471</td>
+      <td>43.198586</td>
+      <td>21.599293</td>
+      <td>10.799647</td>
+      <td>25.203420</td>
+      <td>17.551370</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>30.0</td>
+      <td>35.0</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>30.50</td>
+      <td>32.50</td>
+      <td>0.737705</td>
+      <td>0.491803</td>
+      <td>1.475410</td>
+      <td>0.983607</td>
+      <td>35.308418</td>
+      <td>17.654209</td>
+      <td>8.827105</td>
+      <td>21.777583</td>
+      <td>16.142592</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>35.0</td>
+      <td>40.0</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>35.50</td>
+      <td>37.50</td>
+      <td>0.633803</td>
+      <td>0.422535</td>
+      <td>1.267606</td>
+      <td>0.845070</td>
+      <td>29.053202</td>
+      <td>14.526601</td>
+      <td>7.263301</td>
+      <td>18.898560</td>
+      <td>14.721181</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>40.0</td>
+      <td>45.0</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>40.50</td>
+      <td>42.50</td>
+      <td>0.555556</td>
+      <td>0.370370</td>
+      <td>1.111111</td>
+      <td>0.740741</td>
+      <td>24.131685</td>
+      <td>12.065843</td>
+      <td>6.032921</td>
+      <td>16.481590</td>
+      <td>13.353260</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>45.0</td>
+      <td>50.0</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>45.50</td>
+      <td>47.50</td>
+      <td>0.494505</td>
+      <td>0.329670</td>
+      <td>0.989011</td>
+      <td>0.659341</td>
+      <td>20.251082</td>
+      <td>10.125541</td>
+      <td>5.062771</td>
+      <td>14.446632</td>
+      <td>12.076935</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>50.0</td>
+      <td>55.0</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>50.50</td>
+      <td>52.50</td>
+      <td>0.445545</td>
+      <td>0.297030</td>
+      <td>0.891089</td>
+      <td>0.594059</td>
+      <td>17.169779</td>
+      <td>8.584890</td>
+      <td>4.292445</td>
+      <td>12.726265</td>
+      <td>10.910053</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>55.0</td>
+      <td>60.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>55.50</td>
+      <td>57.50</td>
+      <td>0.405405</td>
+      <td>0.270270</td>
+      <td>0.810811</td>
+      <td>0.540541</td>
+      <td>14.700519</td>
+      <td>7.350260</td>
+      <td>3.675130</td>
+      <td>11.265406</td>
+      <td>9.857288</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>60.0</td>
+      <td>65.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>60.50</td>
+      <td>62.50</td>
+      <td>0.371901</td>
+      <td>0.247934</td>
+      <td>0.743802</td>
+      <td>0.495868</td>
+      <td>12.701785</td>
+      <td>6.350893</td>
+      <td>3.175446</td>
+      <td>10.019314</td>
+      <td>8.915451</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>65.0</td>
+      <td>73.0</td>
+      <td>8.0</td>
+      <td>0</td>
+      <td>67.00</td>
+      <td>69.00</td>
+      <td>0.335821</td>
+      <td>0.223881</td>
+      <td>0.671642</td>
+      <td>0.447761</td>
+      <td>10.635768</td>
+      <td>5.317884</td>
+      <td>2.658942</td>
+      <td>8.661495</td>
+      <td>7.844420</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>73.0</td>
+      <td>75.0</td>
+      <td>2.0</td>
+      <td>0</td>
+      <td>72.00</td>
+      <td>74.00</td>
+      <td>0.312500</td>
+      <td>0.208333</td>
+      <td>0.625000</td>
+      <td>0.416667</td>
+      <td>9.359231</td>
+      <td>4.679615</td>
+      <td>2.339808</td>
+      <td>7.782176</td>
+      <td>7.126544</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>75.0</td>
+      <td>80.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>75.50</td>
+      <td>77.50</td>
+      <td>0.298013</td>
+      <td>0.198675</td>
+      <td>0.596026</td>
+      <td>0.397351</td>
+      <td>8.593155</td>
+      <td>4.296578</td>
+      <td>2.148289</td>
+      <td>7.238090</td>
+      <td>6.672991</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>80.0</td>
+      <td>85.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>80.50</td>
+      <td>82.50</td>
+      <td>0.279503</td>
+      <td>0.186335</td>
+      <td>0.559006</td>
+      <td>0.372671</td>
+      <td>7.647429</td>
+      <td>3.823714</td>
+      <td>1.911857</td>
+      <td>6.548114</td>
+      <td>6.087697</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>85.0</td>
+      <td>90.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>85.50</td>
+      <td>87.50</td>
+      <td>0.263158</td>
+      <td>0.175439</td>
+      <td>0.526316</td>
+      <td>0.350877</td>
+      <td>6.845746</td>
+      <td>3.422873</td>
+      <td>1.711436</td>
+      <td>5.946324</td>
+      <td>5.568093</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>90.0</td>
+      <td>95.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>90.50</td>
+      <td>92.50</td>
+      <td>0.248619</td>
+      <td>0.165746</td>
+      <td>0.497238</td>
+      <td>0.331492</td>
+      <td>6.160997</td>
+      <td>3.080499</td>
+      <td>1.540249</td>
+      <td>5.419215</td>
+      <td>5.106088</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>95.0</td>
+      <td>100.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>95.50</td>
+      <td>97.50</td>
+      <td>0.235602</td>
+      <td>0.157068</td>
+      <td>0.471204</td>
+      <td>0.314136</td>
+      <td>5.572000</td>
+      <td>2.786000</td>
+      <td>1.393000</td>
+      <td>4.955607</td>
+      <td>4.694492</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>100.0</td>
+      <td>105.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>100.50</td>
+      <td>102.50</td>
+      <td>0.223881</td>
+      <td>0.149254</td>
+      <td>0.447761</td>
+      <td>0.298507</td>
+      <td>5.062053</td>
+      <td>2.531026</td>
+      <td>1.265513</td>
+      <td>4.546218</td>
+      <td>4.326989</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>105.0</td>
+      <td>110.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>105.50</td>
+      <td>107.50</td>
+      <td>0.213270</td>
+      <td>0.142180</td>
+      <td>0.426540</td>
+      <td>0.284360</td>
+      <td>4.617870</td>
+      <td>2.308935</td>
+      <td>1.154468</td>
+      <td>4.183311</td>
+      <td>3.998069</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="alert alert-success" role="alert">
+<p>Plot the geostatic stress distribution, excessive stress distribution, the table of ground condition, and the table of footing dimensions to the Haley Aldrich template.</p>
+</div><div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hapy.plotting</span> <span class="kn">import</span> <span class="n">HCFigure</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+  
+
+<span class="n">asdf</span> <span class="o">=</span> <span class="n">HCFigure</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;ha&#39;</span><span class="p">,</span>
+              <span class="n">title</span><span class="o">=</span><span class="s2">&quot;HA-204 PRELIMINARY SETTLEMENT </span><span class="se">\n</span><span class="s2">DUE TO NEW FILL&quot;</span><span class="p">,</span>
+              <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Cal&#39;</span><span class="p">,</span>
+              <span class="n">date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
+              <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span>
+              <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mf">8.5</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+              <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;p&#39;</span><span class="p">,</span>
+              <span class="n">city</span><span class="o">=</span><span class="s1">&#39;Sparrows Point&#39;</span><span class="p">,</span>
+              <span class="n">state</span><span class="o">=</span><span class="s1">&#39;Maryland&#39;</span><span class="p">,</span>
+              <span class="n">sitename</span><span class="o">=</span><span class="s1">&#39;aes Sparrows point Lng Terminal&#39;</span><span class="p">,</span>
+              <span class="n">prjnum</span><span class="o">=</span><span class="s1">&#39;XXXX-XX&#39;</span><span class="p">,</span>
+              <span class="n">prjname</span><span class="o">=</span><span class="s1">&#39;Sparrows Point LNG&#39;</span><span class="p">,</span>
+              <span class="n">fignum</span><span class="o">=</span><span class="s1">&#39;32907-260&#39;</span><span class="p">,</span>
+                <span class="c1"># do not number bullet points of notes</span>
+              <span class="n">note</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;REF: ELASTIC SOLUTIONS FOR SOIL AND ROCK MECHANICS, BY H.G. POULOS &amp; E.H. DAVIS&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;REF: AN INTRODUCTION TO GEOTECHNICAL ENGINEERING, BY R.D. HOLTZ &amp; W.D. KOVACS&quot;</span><span class="p">]</span>
+              <span class="p">)</span>
+
+<span class="c1"># Plot geostatic stress distribution</span>
+<span class="n">loadAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.28</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span> <span class="c1"># define the position of ground stress plot</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_mid</span><span class="p">,</span> <span class="n">depth_top</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;water pressure&#39;</span><span class="p">)</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sig_vo_ef</span><span class="p">,</span> <span class="n">depth_top</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;effective stress&#39;</span><span class="p">)</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sig_vo_mid</span><span class="p">,</span> <span class="n">depth_top</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;total stress&#39;</span><span class="p">)</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">loadAx</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Geostatic stress (pcf)&#39;</span><span class="p">)</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Depth (ft)&#39;</span><span class="p">)</span>
+<span class="n">loadAx</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># plot vertical excessive stress distribution</span>
+<span class="n">stressAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.28</span><span class="p">,</span> <span class="mf">0.46</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span> <span class="c1"># define the position of plot</span>
+<span class="n">stressAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">l_b_center_q</span><span class="p">,</span> <span class="n">depth_top</span><span class="p">)</span>
+<span class="n">stressAx</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">stressAx</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># stressAx.set_xlim(stressAx.get_xlim()[::-1])</span>
+<span class="n">stressAx</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Applied Stress (psf)&#39;</span><span class="p">)</span>
+<span class="n">stressAx</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Depth (ft)&#39;</span><span class="p">)</span>
+<span class="n">stressAx</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># plot the tables of ground and footing information</span>
+<span class="n">tableAx1</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.28</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">tableAx1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">tableAx1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">tableAx1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Surface &amp; Groundwater Conditions&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">temp_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;surface_elevation&quot;</span><span class="p">],</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;ground_water_depth&quot;</span><span class="p">],</span>
+                          <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;surcharge_weight&quot;</span><span class="p">],</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;overburden_load&quot;</span><span class="p">]])</span>
+<span class="n">tableAx1</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span> <span class="o">=</span> <span class="n">temp_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">rowLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;surface elevation (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;ground water depth (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;Density of overburden (pcf)&quot;</span><span class="p">,</span><span class="s2">&quot;overburden load (ksf)&quot;</span><span class="p">],</span>
+        <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+        <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot the tables of ground and footing information</span>
+<span class="n">tableAx2</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">tableAx2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">tableAx2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">tableAx2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Footing DImensions&#39;</span><span class="p">)</span>
+<span class="n">temp_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_shape&quot;</span><span class="p">],</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_embedment&quot;</span><span class="p">],</span>
+                          <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_width&quot;</span><span class="p">],</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_length&quot;</span><span class="p">]])</span>
+<span class="n">tableAx2</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span> <span class="o">=</span> <span class="n">temp_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">rowLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Footing shape&quot;</span><span class="p">,</span><span class="s2">&quot;Embedment, $D_r$ (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;Footing width, B (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;Footing length, L (ft)&quot;</span><span class="p">],</span>
+        <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+        <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="n">asdf</span><span class="o">.</span><span class="n">add_text</span><span class="p">()</span>
+<span class="n">asdf</span><span class="o">.</span><span class="n">saveHCFigure</span><span class="p">(</span><span class="s2">&quot;soil_profile_page.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">hapy.plotting</span> <span class="kn">import</span> <span class="n">HCFigure</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">datetime</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;hapy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="settlement-calculation">
+<h2>Settlement Calculation<a class="headerlink" href="#settlement-calculation" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success" role="alert">
+<p>Calculate compression of each layer by following Hough, AASHTO, and WSDOT method. Click “+” to check the calculating progress. The total settlement result will be plotted with footing bearing capacity.</p>
+</div><div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;depth_top (ft)&#39;</span><span class="p">:</span> <span class="n">depth_top</span><span class="p">,</span>
+        <span class="s1">&#39;depth_bottom (ft)&#39;</span><span class="p">:</span><span class="n">depth_bottom</span><span class="p">,</span>
+        <span class="s1">&#39;z_mid (ft)&#39;</span><span class="p">:</span><span class="n">midpoint_depth_below_footing</span><span class="p">,</span>
+        <span class="s1">&#39;actual_depth (ft)&#39;</span><span class="p">:</span><span class="n">actual_depth</span><span class="p">,</span>
+        <span class="s1">&#39;layer_thickness (ft)&#39;</span><span class="p">:</span><span class="n">layer_thickness</span><span class="p">,</span>  
+        <span class="s1">&#39;AASHTO_C&#39;</span><span class="p">:</span><span class="n">AASHTO_C</span><span class="p">,</span>
+        <span class="s1">&#39;sig_vo_ef&#39;</span><span class="p">:</span><span class="n">sig_vo_ef</span><span class="p">,</span> 
+        <span class="s1">&#39;sig_v&#39;</span><span class="p">:</span><span class="n">l_b_center_q</span>  <span class="c1"># the excessive load from footing</span>
+        <span class="p">}</span>
+<span class="n">settlement_table</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+
+<span class="n">dh_hough</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># store resutls of Hough method</span>
+<span class="n">dh_aashto</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># store AASHTO result</span>
+<span class="n">dh_wsdot</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># store results suggested by WSDOT</span>
+
+<span class="n">sig_vf_ef</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># required by Hough method, = sig_vo_ef + sig_v</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">layer_num</span><span class="p">):</span>
+    <span class="n">sig_vf_ef</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l_b_center_q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="o">+</span><span class="n">sig_vo_ef</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+    <span class="c1"># Hough method, unit: ft</span>
+    <span class="n">dh_hough</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">layer_thickness</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">AASHTO_C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">sig_vf_ef</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">sig_vo_ef</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="c1">#AASHTO, unit: in</span>
+    <span class="n">dh_aashto</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dh_hough</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span> 
+    
+    <span class="c1"># WSDOT reducement</span>
+    <span class="k">if</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;AASHTO_N1&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">20</span> <span class="ow">and</span> <span class="n">dh_hough</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="n">dh_wsdot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dh_aashto</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="mf">1.5</span><span class="p">)</span>
+    
+<span class="c1">## Total settlement for each layer</span>
+<span class="n">dh_total_aashto</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">layer_num</span><span class="p">))</span>
+<span class="n">dh_total_wsdot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">layer_num</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">layer_num</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="p">(</span><span class="n">layer_num</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">dh_total_aashto</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dh_aashto</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">dh_total_wsdot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dh_wsdot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dh_total_aashto</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dh_aashto</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dh_total_aashto</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dh_total_wsdot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dh_wsdot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dh_total_wsdot</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># merge results to settlement calculation table</span>
+
+<span class="n">settlement_table</span><span class="p">[</span><span class="s1">&#39;$\Delta H_i Hough$&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dh_hough</span>
+<span class="n">settlement_table</span><span class="p">[</span><span class="s1">&#39;$\Delta H_i$ AASHTO&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dh_aashto</span>
+<span class="n">settlement_table</span><span class="p">[</span><span class="s1">&#39;$\Delta H_i$ WSDOT&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dh_wsdot</span>
+
+<span class="n">settlement_table</span><span class="p">[</span><span class="s1">&#39;$\Sigma \Delta H_i$ AASHTO&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dh_total_aashto</span>
+<span class="n">settlement_table</span><span class="p">[</span><span class="s1">&#39;$\Sigma \Delta H_i$ WSDOT&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dh_total_wsdot</span>
+
+
+<span class="n">settlement_table</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bearing-capacity-mult-scenario">
+<h2>Bearing Capacity Mult Scenario<a class="headerlink" href="#bearing-capacity-mult-scenario" title="Permalink to this headline">¶</a></h2>
+<p>Input soil’s properties. The bearing capacity factors can be found according to the following figure (fig 10.6.3.1.2a-1).</p>
+<a class="reference internal image-reference" href="../_images/bearing_capacity_fig.jpg"><img alt="footing dimension" class="align-center" src="../_images/bearing_capacity_fig.jpg" style="width: 350px;" /></a>
+<p>The above figure is digitized and approximated by polynomial trend line. User can following the formulas to calculate the value of parameters. This program does not provide automatical calculation, although it is easy to implement. The major reason is that human judgement is very necessary to choose the layer for bearing capacity calcualtion. For example, top layer is strong, but the embedment is very close to the 2nd layer and the 2nd layer is weak. In this case, it might be necessary for user to use the properties of the 2nd layer for calculation.</p>
+<a class="reference internal image-reference" href="../_images/bearing_capacity_poly_fig.jpg"><img alt="footing dimension" class="align-center" src="../_images/bearing_capacity_poly_fig.jpg" style="width: 600px;" /></a>
+<div class="alert alert-warning" role="alert">
+<p>Type in geometries and the parameters manually. Then click “run” to input data to the program.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bearing capacity factors</span>
+<span class="n">n_c</span> <span class="o">=</span> <span class="mf">35.5</span>
+<span class="n">n_q</span> <span class="o">=</span> <span class="mf">23.2</span>
+<span class="n">n_y</span> <span class="o">=</span> <span class="mf">30.2</span> 
+
+<span class="n">slope</span> <span class="o">=</span> <span class="s1">&#39;yes&#39;</span>  <span class="c1"># or = &#39;no&#39;</span>
+
+<span class="n">friction_angle</span> <span class="o">=</span> <span class="mi">32</span>  <span class="c1"># unit: degrees</span>
+<span class="n">cohesion</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># unit: psf</span>
+<span class="n">soil_weight_above_gwt</span> <span class="o">=</span> <span class="mi">120</span>  <span class="c1"># unit: pcf</span>
+<span class="n">foundation_depth</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># unit: ft</span>
+<span class="n">depth_to_gwt</span> <span class="o">=</span> <span class="mi">42</span>  <span class="c1"># unit: ft</span>
+
+<span class="n">lower_bound_of_length</span> <span class="o">=</span> <span class="mi">45</span>  <span class="c1"># footing dimensions. Used for searching best L*B</span>
+<span class="n">lower_bound_of_width</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">varies_of_length</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">varies_of_width</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">upper_bound_of_length</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">upper_bound_of_width</span> <span class="o">=</span> <span class="mi">23</span>
+
+<span class="n">streng_ls</span> <span class="o">=</span> <span class="mf">0.65</span>  <span class="c1"># strength limit state (Table 10.5.5.2.1-1)</span>
+<span class="n">ex_ls</span> <span class="o">=</span> <span class="mf">0.9</span>  <span class="c1"># extreme event limit state (WSDOT GDM)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result of bearing capacity calculation is shown below. Click “+” button to check the detailed procedures.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## start calculation</span>
+
+<span class="n">f_b_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">lower_bound_of_width</span><span class="p">,</span> <span class="n">upper_bound_of_width</span><span class="p">,</span> <span class="n">varies_of_width</span><span class="p">)</span>
+<span class="n">f_l_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">lower_bound_of_length</span><span class="p">,</span> <span class="n">upper_bound_of_length</span><span class="p">,</span> <span class="n">varies_of_length</span><span class="p">)</span>
+
+<span class="n">f_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">f_b_temp</span><span class="p">)</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">f_l_temp</span><span class="p">))</span>
+<span class="n">f_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">f_b_temp</span><span class="p">)</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">f_l_temp</span><span class="p">))</span>
+<span class="n">f_b_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">f_b_temp</span><span class="p">)</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">f_l_temp</span><span class="p">))</span>
+<span class="n">case</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">f_b_temp</span><span class="p">)</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">f_l_temp</span><span class="p">))])</span>
+<span class="n">case_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">case</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">f_l_temp</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">f_b_temp</span><span class="p">)):</span>
+        <span class="n">f_b</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">f_b_temp</span><span class="p">)</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_b_temp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">f_l</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">f_b_temp</span><span class="p">)</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_l_temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">f_b_l</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">f_b_temp</span><span class="p">)</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_b</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">f_b_temp</span><span class="p">)</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">f_l</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">f_b_temp</span><span class="p">)</span><span class="o">+</span><span class="n">j</span><span class="p">]</span>
+
+<span class="n">temp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;case&#39;</span><span class="p">:</span> <span class="n">case</span><span class="p">,</span>
+        <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="n">f_b</span><span class="p">,</span>
+        <span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="n">f_l</span><span class="p">,</span>
+        <span class="s1">&#39;B/L&#39;</span><span class="p">:</span> <span class="n">f_b_l</span>
+        <span class="p">}</span>
+<span class="n">bearing_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+
+
+<span class="c1">## shape and inclination factors</span>
+<span class="n">s_c</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">i_c</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">s_q</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">i_q</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">s_y</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">i_y</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">d_q</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">n_cm</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">n_qm</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">n_ym</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">c_wy</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">c_wq</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">rc_bc</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.213</span><span class="p">,</span> <span class="mf">0.216</span><span class="p">,</span> <span class="mf">0.220</span><span class="p">,</span> <span class="mf">0.259</span><span class="p">,</span> <span class="mf">0.298</span><span class="p">,</span> <span class="mf">0.331</span><span class="p">,</span> <span class="mf">0.36</span><span class="p">]</span>  <span class="c1"># how to find this ???????</span>
+
+<span class="n">bearing_capacity_normal</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># unit: ksf</span>
+<span class="n">bearing_capacity_slope</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">strength_limit_state</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">extreme_event_limit_state</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">case_num</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">friction_angle</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">s_c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">bearing_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;B/L&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_q</span><span class="o">/</span><span class="n">n_c</span><span class="p">))</span>
+        <span class="n">s_q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">bearing_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;B/L&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">friction_angle</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+        <span class="n">s_y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.4</span><span class="o">*</span><span class="n">bearing_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;B/L&#39;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">s_c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">bearing_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;B/L&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">s_q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">s_y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">i_c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">i_q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">i_y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">d_q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1">## N_cm, N_qm, and N_ym</span>
+    <span class="n">n_cm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s_c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">n_c</span><span class="o">*</span><span class="n">i_c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">n_qm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n_q</span><span class="o">*</span><span class="n">s_q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">i_q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">d_q</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">n_ym</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n_y</span><span class="o">*</span><span class="n">s_y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">i_y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">depth_to_gwt</span> <span class="o">&gt;</span> <span class="n">foundation_depth</span><span class="p">:</span>
+        <span class="n">c_wy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">min</span><span class="p">((</span><span class="mf">0.5</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">depth_to_gwt</span><span class="o">/</span><span class="p">(</span><span class="mf">1.5</span><span class="o">*</span><span class="n">f_b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">foundation_depth</span><span class="p">))),</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">c_wy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">depth_to_gwt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">c_wq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">depth_to_gwt</span> <span class="o">==</span> <span class="n">foundation_depth</span><span class="p">:</span>
+        <span class="n">c_wq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">min</span><span class="p">((</span><span class="mf">0.5</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">depth_to_gwt</span><span class="o">/</span><span class="n">foundation_depth</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">c_wq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        
+    <span class="c1"># calculate bearing capacity</span>
+    <span class="k">if</span> <span class="n">lower_bound_of_width</span> <span class="o">&gt;</span> <span class="n">lower_bound_of_length</span><span class="p">:</span>
+        <span class="n">bearing_capacity_normal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bearing_capacity_normal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">min</span><span class="p">((</span><span class="n">cohesion</span><span class="o">*</span><span class="n">n_cm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">soil_weight_above_gwt</span><span class="o">*</span><span class="n">foundation_depth</span><span class="o">*</span><span class="n">n_qm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">c_wq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> 
+        <span class="mf">0.5</span><span class="o">*</span><span class="n">soil_weight_above_gwt</span><span class="o">*</span><span class="n">f_b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">n_ym</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">c_wy</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">120</span><span class="p">))</span>
+        
+    <span class="n">bearing_capacity_slope</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bearing_capacity_normal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">rc_bc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">strength_limit_state</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bearing_capacity_slope</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">streng_ls</span><span class="p">)</span>
+    <span class="n">extreme_event_limit_state</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bearing_capacity_slope</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">ex_ls</span><span class="p">)</span>
+        
+<span class="c1"># add results to bearing capacity calculation table</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;s_c&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s_c</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;i_c&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i_c</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;s_q&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s_q</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;i_q&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i_q</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;s_y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s_y</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;i_y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i_y</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;d_q&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d_q</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;n_cm&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">n_cm</span>  
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;n_qm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">n_qm</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;n_ym&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">n_ym</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;c_wy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">c_wy</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;c_wq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">c_wq</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;rc_bc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rc_bc</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;bearing capacity normal (ksf)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bearing_capacity_normal</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;bearing capacity slope (ksf)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bearing_capacity_slope</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;strength limit state (ksf)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">strength_limit_state</span>
+<span class="n">bearing_table</span><span class="p">[</span><span class="s1">&#39;extreme event limit state (ksf)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">extreme_event_limit_state</span>
+
+<span class="n">bearing_table</span>
+            
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot bearing capacity result to figure template</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hapy.plotting</span> <span class="kn">import</span> <span class="n">HCFigure</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+  
+
+<span class="n">asdf</span> <span class="o">=</span> <span class="n">HCFigure</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;ha&#39;</span><span class="p">,</span>
+              <span class="n">title</span><span class="o">=</span><span class="s2">&quot;HA-204 PRELIMINARY SETTLEMENT </span><span class="se">\n</span><span class="s2">DUE TO NEW FILL&quot;</span><span class="p">,</span>
+              <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Cal&#39;</span><span class="p">,</span>
+              <span class="n">date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
+              <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span>
+              <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mf">8.5</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+              <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;l&#39;</span><span class="p">,</span>
+              <span class="n">city</span><span class="o">=</span><span class="s1">&#39;Sparrows Point&#39;</span><span class="p">,</span>
+              <span class="n">state</span><span class="o">=</span><span class="s1">&#39;Maryland&#39;</span><span class="p">,</span>
+              <span class="n">sitename</span><span class="o">=</span><span class="s1">&#39;aes Sparrows point Lng Terminal&#39;</span><span class="p">,</span>
+              <span class="n">prjnum</span><span class="o">=</span><span class="s1">&#39;XXXX-XX&#39;</span><span class="p">,</span>
+              <span class="n">prjname</span><span class="o">=</span><span class="s1">&#39;Sparrows Point LNG&#39;</span><span class="p">,</span>
+              <span class="n">fignum</span><span class="o">=</span><span class="s1">&#39;32907-260&#39;</span><span class="p">,</span>
+                <span class="c1"># do not number bullet points of notes</span>
+              <span class="n">note</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Settlement estimates calculated based on Hough (1959). Soil layering and groundwater profile based on individual samples reported in boring XXXXX. Depth to bearing is approximately XXX feet from existing ground surface.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Footing assumed to be bearing on very dense granular soils at an elevation of XX feet (X feet below existing grade).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;We have assumed no liquefaction occurs.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Footing length and width assumed to be equal (i.e. square footing). -OR- Footing length assumed constant at XX feet (i.e. rectangular footing).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;The effective footing width for bearing pressure shall be calculated according to Section 6.4 of FHWA-SA-02-024 Geotechnical Engineering Circular No. 5 Shallow Foundations.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;These recommendations are preliminary results only and are subject to change pending final evaluations of ESUs and site geometry.&quot;</span>
+                    <span class="p">]</span>
+              <span class="p">)</span>
+
+<span class="c1"># Plot geostatic stress distribution</span>
+<span class="n">bearAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span> <span class="c1"># define the position of ground stress plot</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f_b</span><span class="p">,</span> <span class="n">strength_limit_state</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Strength limit state&#39;</span><span class="p">)</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f_b</span><span class="p">,</span> <span class="n">extreme_event_limit_state</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;extreme_event_limit_state&#39;</span><span class="p">)</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Effective Footing Width, B (Feet)&#39;</span><span class="p">)</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Factored Bearing Capacity (ksf)&#39;</span><span class="p">)</span>
+<span class="n">bearAx</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># plot the tables of footing information</span>
+<span class="n">footAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.67</span><span class="p">,</span> <span class="mf">0.61</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">footAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">footAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">footAx</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Footing information&#39;</span><span class="p">)</span>
+<span class="n">temp_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">footing_width</span><span class="p">,</span> <span class="n">footing_length</span><span class="p">,</span> <span class="n">ground_data</span><span class="p">[</span><span class="s2">&quot;footing_embedment&quot;</span><span class="p">],</span><span class="n">cal_x</span><span class="p">,</span> <span class="n">cal_y</span><span class="p">,</span> <span class="n">influence_z</span><span class="p">])</span>
+                        
+<span class="n">footAx</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span> <span class="o">=</span> <span class="n">temp_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">rowLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Width, B (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;Length, L (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;Embedment, $D_r$ (ft)&quot;</span><span class="p">,</span> <span class="s2">&quot;L/2 (ft)&quot;</span><span class="p">,</span><span class="s2">&quot;B/2 (ft)&quot;</span><span class="p">,</span> <span class="s2">&quot;Influence Dept (ft)&quot;</span><span class="p">],</span>
+        <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+        <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot the tables of applied footing stress</span>
+<span class="n">footStAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.67</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">footStAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">footStAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">footStAx</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Applied footing stress&#39;</span><span class="p">)</span>
+<span class="n">temp_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">load</span><span class="p">,</span> <span class="n">req_load</span><span class="p">,</span> <span class="n">stress</span><span class="p">])</span>
+                        
+<span class="n">footStAx</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span> <span class="o">=</span> <span class="n">temp_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">rowLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Load, q (ksf)&quot;</span><span class="p">,</span><span class="s2">&quot;Req&#39;d load (kips)&quot;</span><span class="p">,</span><span class="s2">&quot;Stress, q (ksf)&quot;</span><span class="p">],</span>
+        <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+        <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot the tables of total settlement at base of footing</span>
+<span class="n">totalsettleAx</span> <span class="o">=</span> <span class="n">asdf</span><span class="o">.</span><span class="n">addPlotAxes</span><span class="p">([</span><span class="mf">0.67</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">])</span>
+<span class="n">totalsettleAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">totalsettleAx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">totalsettleAx</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Total Settlement at Base of Footing&#39;</span><span class="p">)</span>
+<span class="n">temp_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="nb">round</span><span class="p">(</span><span class="n">dh_total_wsdot</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">dh_total_aashto</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">)])</span>
+                        
+<span class="n">totalsettleAx</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span> <span class="o">=</span> <span class="n">temp_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">rowLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;$\Sigma \Delta H_i$ , WSDOT&quot;</span><span class="p">,</span><span class="s2">&quot;$\Sigma \Delta H_i$ , AASHTO&quot;</span><span class="p">],</span>
+        <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+        <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+
+<span class="n">asdf</span><span class="o">.</span><span class="n">add_text</span><span class="p">()</span>
+<span class="n">asdf</span><span class="o">.</span><span class="n">saveHCFigure</span><span class="p">(</span><span class="s2">&quot;bearing_capacity.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./geotechnics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="vert_test.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Settlement Calculations of Embankments</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="notebooks.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Content with notebooks</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By PPH Industries, Inc.<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
