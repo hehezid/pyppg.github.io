@@ -1,0 +1,18 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Geotechnics
+    chapters:
+    - file: markdown
+    - file: geotechnics/emabank_settlement
+    - file: geotechnics/footing_bearing_capacity
+    - file: geotechnics/spt_interpolation
+    - file: geotechnics/vert_test
+    - file: geotechnics/footing_cal
+    - file: geotechnics/notebooks
+  - caption: Small Jobs
+    chapters:
+    - file: small_jobs/2021-0802_Zach_Gardner
