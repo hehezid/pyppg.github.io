@@ -1,0 +1,98 @@
+Traceback (most recent call last):
+  File "c:\users\hehez\onedrive\github\pyppg-handbook\venv\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "c:\users\hehez\onedrive\github\pyppg-handbook\venv\lib\site-packages\nbclient\client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "c:\users\hehez\onedrive\github\pyppg-handbook\venv\lib\site-packages\jupyter_core\utils\__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2800.0_x64__qbz5n2kfra8p0\lib\asyncio\base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "c:\users\hehez\onedrive\github\pyppg-handbook\venv\lib\site-packages\nbclient\client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "c:\users\hehez\onedrive\github\pyppg-handbook\venv\lib\site-packages\nbclient\client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "c:\users\hehez\onedrive\github\pyppg-handbook\venv\lib\site-packages\nbclient\client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from hapy.plotting import HCFigure
+import datetime as datetime
+import numpy as np
+  
+
+asdf = HCFigure(style = 'ha',
+              title="HA-204 PRELIMINARY SETTLEMENT \nDUE TO NEW FILL",
+              author='Cal',
+              date=datetime.datetime.now(),
+              filename='file',
+              size=[8.5, 11],
+              orientation='p',
+              city='Sparrows Point',
+              state='Maryland',
+              sitename='aes Sparrows point Lng Terminal',
+              prjnum='XXXX-XX',
+              prjname='Sparrows Point LNG',
+              fignum='32907-260',
+                # do not number bullet points of notes
+              note=["REF: ELASTIC SOLUTIONS FOR SOIL AND ROCK MECHANICS, BY H.G. POULOS & E.H. DAVIS",
+                     "REF: AN INTRODUCTION TO GEOTECHNICAL ENGINEERING, BY R.D. HOLTZ & W.D. KOVACS"]
+              )
+
+# Plot geostatic stress distribution
+loadAx = asdf.addPlotAxes([0.28, 0.73, 0.5, 0.2]) # define the position of ground stress plot
+loadAx.plot(u_mid, depth_top, label='water pressure')
+loadAx.plot(sig_vo_ef, depth_top, label='effective stress')
+loadAx.plot(sig_vo_mid, depth_top, label='total stress')
+loadAx.legend()
+loadAx.set_ylim(loadAx.get_ylim()[::-1])
+loadAx.set_xlabel('Geostatic stress (pcf)')
+loadAx.set_ylabel('Depth (ft)')
+loadAx.grid()
+
+# plot vertical excessive stress distribution
+stressAx = asdf.addPlotAxes([0.28, 0.46, 0.5, 0.2]) # define the position of plot
+stressAx.plot(l_b_center_q, depth_top)
+stressAx.set_ylim(stressAx.get_ylim()[::-1])
+# stressAx.set_xlim(stressAx.get_xlim()[::-1])
+stressAx.set_xlabel('Applied Stress (psf)')
+stressAx.set_ylabel('Depth (ft)')
+stressAx.grid()
+
+# plot the tables of ground and footing information
+tableAx1 = asdf.addPlotAxes([0.28, 0.15, 0.25, 0.2])
+tableAx1.axis('tight')
+tableAx1.axis('off')
+tableAx1.set_title('Surface & Groundwater Conditions', loc='right')
+temp_data = pd.DataFrame([ground_data["surface_elevation"], ground_data["ground_water_depth"],
+                          ground_data["surcharge_weight"], ground_data["overburden_load"]])
+tableAx1.table(cellText = temp_data.values,
+        rowLabels=["surface elevation (ft)","ground water depth (ft)","Density of overburden (pcf)","overburden load (ksf)"],
+        colWidths=[0.45,0.5],
+        loc="upper right")
+
+# plot the tables of ground and footing information
+tableAx2 = asdf.addPlotAxes([0.6, 0.15, 0.25, 0.2])
+tableAx2.axis('tight')
+tableAx2.axis('off')
+tableAx2.set_title('Footing DImensions')
+temp_data = pd.DataFrame([ground_data["footing_shape"], ground_data["footing_embedment"],
+                          ground_data["footing_width"], ground_data["footing_length"]])
+tableAx2.table(cellText = temp_data.values,
+        rowLabels=["Footing shape","Embedment, $D_r$ (ft)","Footing width, B (ft)","Footing length, L (ft)"],
+        colWidths=[0.45,0.5],
+        loc="upper right")
+
+asdf.add_text()
+asdf.saveHCFigure("soil_profile_page.pdf")
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [1;32mIn[5], line 1[0m
+[1;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mhapy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mplotting[39;00m [38;5;28;01mimport[39;00m HCFigure
+[0;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mdatetime[39;00m [38;5;28;01mas[39;00m [38;5;21;01mdatetime[39;00m
+[0;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+
+[1;31mModuleNotFoundError[0m: No module named 'hapy'
+

@@ -1,0 +1,755 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Data Clustering - separate fluent data (demo) &#8212; PyPPG Handbook (HADES)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"1a434d051e71401f9b3942c1d08b429b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9e42148ab5ab4b6ab5c553c26729d56b": {"model_name": "ButtonStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ButtonStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "button_color": null, "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "340dc7bc715e46b3b6b75d9bf9b5bcba": {"model_name": "FileUploadModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FileUploadModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "FileUploadView", "accept": "", "button_style": "", "description": "Upload CSV", "description_allow_html": false, "disabled": false, "error": "", "icon": "upload", "layout": "IPY_MODEL_1a434d051e71401f9b3942c1d08b429b", "multiple": false, "style": "IPY_MODEL_9e42148ab5ab4b6ab5c553c26729d56b", "tabbable": null, "tooltip": null, "value": []}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analytics/fluent_cluster-Copy1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/PPG_Logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/PPG_Logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Geotechnics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/emabank_settlement.html">Settlement Calculations of Embankments new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/footing_bearing_capacity.html">Bearing Capacity of Shallow Foundations new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/spt_interpolation.html">SPT Data Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/vert_test.html">Settlement Calculations of Embankments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/footing_cal.html">Bearing Capacity of Shallow Foundations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/notebooks.html">Content with notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fluent_cluster.html">Data Clustering - separate fluent data (demo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mercury_demo.html">SPH Analysis - Compound Shaped Anchor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Small Jobs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../small_jobs/2021-0802_Zach_Gardner.html">2021-0802 Zach Gardner</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="http://172.173.197.9/hub/user-redirect/git-pull?repo=https%3A//github.com/hehezid/pyppg-handbook&urlpath=lab/tree/pyppg-handbook/handbook/analytics/fluent_cluster-Copy1.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/analytics/fluent_cluster-Copy1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Clustering - separate fluent data (demo)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-results-for-the-fluent-analysis-data">Clustering results for the fluent analysis data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-results">Clustering results</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mercury</span> <span class="k">as</span> <span class="nn">mr</span> <span class="c1"># for widgets</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">islice</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">mixture</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">kneighbors_graph</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pip install -r requirements.txt --upgrade</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">App</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Clutering test2&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Cluster input data set&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Mercury Application</h3><small>This output won't appear in the web app.</small></div></div>
+</div>
+<section id="data-clustering-separate-fluent-data-demo">
+<h1>Data Clustering - separate fluent data (demo)<a class="headerlink" href="#data-clustering-separate-fluent-data-demo" title="Permalink to this headline">#</a></h1>
+<section id="clustering-results-for-the-fluent-analysis-data">
+<h2>Clustering results for the fluent analysis data<a class="headerlink" href="#clustering-results-for-the-fluent-analysis-data" title="Permalink to this headline">#</a></h2>
+<p>Add background information or introduction here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_file</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Upload CSV&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "340dc7bc715e46b3b6b75d9bf9b5bcba"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import data file (.csv)</span>
+
+<span class="n">file_read</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="n">data_file</span><span class="o">.</span><span class="n">filepath</span><span class="p">:</span>
+    <span class="n">emp_np</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_file</span><span class="o">.</span><span class="n">filepath</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">file_read</span> <span class="o">=</span> <span class="mi">1</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="clustering-results">
+<h2>Clustering results<a class="headerlink" href="#clustering-results" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Compare the clustering results to find the best algorithm</p></li>
+<li><p>Deselect “all” tab and choose the algoritm that returns best result.</p></li>
+<li><p>Wait momentarilly, the grouped data will be saved in <code class="docutils literal notranslate"><span class="pre">\output\cluster_output.csv</span></code> automatically.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">file_read</span><span class="p">:</span>
+
+    <span class="c1"># ============</span>
+    <span class="c1"># Set up cluster parameters</span>
+    <span class="c1"># ============</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span>
+        <span class="n">left</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.01</span>
+    <span class="p">)</span>
+    
+    <span class="n">plot_num</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="n">default_base</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;quantile&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+        <span class="s2">&quot;eps&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+        <span class="s2">&quot;damping&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+        <span class="s2">&quot;preference&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">200</span><span class="p">,</span>
+        <span class="s2">&quot;n_neighbors&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;n_clusters&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;min_samples&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="s2">&quot;xi&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>
+        <span class="s2">&quot;min_cluster_size&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="s2">&quot;allow_single_cluster&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;hdbscan_min_cluster_size&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="s2">&quot;hdbscan_min_samples&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="p">}</span>
+    
+    
+    <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span>
+            <span class="p">(</span><span class="n">emp_np</span><span class="p">,</span> <span class="p">[]),</span>
+        
+            <span class="p">{</span>
+            <span class="p">}</span>    
+        <span class="p">)</span>
+    <span class="p">]</span>
+    
+    <span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">algo_params</span><span class="p">)</span> <span class="o">=</span> <span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># update parameters with dataset-specific values</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">default_base</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">algo_params</span><span class="p">)</span>
+    
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">dataset</span>
+    
+    <span class="c1"># normalize dataset for easier parameter selection</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    
+    <span class="c1"># estimate bandwidth for mean shift</span>
+    <span class="n">bandwidth</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">estimate_bandwidth</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">quantile</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;quantile&quot;</span><span class="p">])</span>
+    
+    <span class="c1"># connectivity matrix for structured Ward</span>
+    <span class="n">connectivity</span> <span class="o">=</span> <span class="n">kneighbors_graph</span><span class="p">(</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;n_neighbors&quot;</span><span class="p">],</span> <span class="n">include_self</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    <span class="c1"># make connectivity symmetric</span>
+    <span class="n">connectivity</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">connectivity</span> <span class="o">+</span> <span class="n">connectivity</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    
+    <span class="c1"># ============</span>
+    <span class="c1"># Create cluster objects</span>
+    <span class="c1"># ============</span>
+    <span class="n">ms</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">MeanShift</span><span class="p">(</span><span class="n">bandwidth</span><span class="o">=</span><span class="n">bandwidth</span><span class="p">,</span> <span class="n">bin_seeding</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">two_means</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">MiniBatchKMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;n_clusters&quot;</span><span class="p">],</span> <span class="n">n_init</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+    <span class="n">ward</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">AgglomerativeClustering</span><span class="p">(</span>
+        <span class="n">n_clusters</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;n_clusters&quot;</span><span class="p">],</span> <span class="n">linkage</span><span class="o">=</span><span class="s2">&quot;ward&quot;</span><span class="p">,</span> <span class="n">connectivity</span><span class="o">=</span><span class="n">connectivity</span>
+    <span class="p">)</span>
+    <span class="n">spectral</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">SpectralClustering</span><span class="p">(</span>
+        <span class="n">n_clusters</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;n_clusters&quot;</span><span class="p">],</span>
+        <span class="n">eigen_solver</span><span class="o">=</span><span class="s2">&quot;arpack&quot;</span><span class="p">,</span>
+        <span class="n">affinity</span><span class="o">=</span><span class="s2">&quot;nearest_neighbors&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">dbscan</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;eps&quot;</span><span class="p">])</span>
+    <span class="n">hdbscan</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">HDBSCAN</span><span class="p">(</span>
+        <span class="n">min_samples</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;hdbscan_min_samples&quot;</span><span class="p">],</span>
+        <span class="n">min_cluster_size</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;hdbscan_min_cluster_size&quot;</span><span class="p">],</span>
+        <span class="n">allow_single_cluster</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;allow_single_cluster&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">optics</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">OPTICS</span><span class="p">(</span>
+        <span class="n">min_samples</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;min_samples&quot;</span><span class="p">],</span>
+        <span class="n">xi</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;xi&quot;</span><span class="p">],</span>
+        <span class="n">min_cluster_size</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;min_cluster_size&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">affinity_propagation</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">AffinityPropagation</span><span class="p">(</span>
+        <span class="n">damping</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;damping&quot;</span><span class="p">],</span> <span class="n">preference</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;preference&quot;</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span>
+    <span class="p">)</span>
+    <span class="n">average_linkage</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">AgglomerativeClustering</span><span class="p">(</span>
+        <span class="n">linkage</span><span class="o">=</span><span class="s2">&quot;average&quot;</span><span class="p">,</span>
+        <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;cityblock&quot;</span><span class="p">,</span>
+        <span class="n">n_clusters</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;n_clusters&quot;</span><span class="p">],</span>
+        <span class="n">connectivity</span><span class="o">=</span><span class="n">connectivity</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">birch</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">Birch</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;n_clusters&quot;</span><span class="p">])</span>
+    <span class="n">gmm</span> <span class="o">=</span> <span class="n">mixture</span><span class="o">.</span><span class="n">GaussianMixture</span><span class="p">(</span>
+        <span class="n">n_components</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;n_clusters&quot;</span><span class="p">],</span> <span class="n">covariance_type</span><span class="o">=</span><span class="s2">&quot;full&quot;</span>
+    <span class="p">)</span>
+    
+    <span class="n">clustering_algorithms</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s2">&quot;MiniBatch</span><span class="se">\n</span><span class="s2">KMeans&quot;</span><span class="p">,</span> <span class="n">two_means</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Affinity</span><span class="se">\n</span><span class="s2">Propagation&quot;</span><span class="p">,</span> <span class="n">affinity_propagation</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;MeanShift&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Spectral</span><span class="se">\n</span><span class="s2">Clustering&quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Ward&quot;</span><span class="p">,</span> <span class="n">ward</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Agglomerative</span><span class="se">\n</span><span class="s2">Clustering&quot;</span><span class="p">,</span> <span class="n">average_linkage</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;DBSCAN&quot;</span><span class="p">,</span> <span class="n">dbscan</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;HDBSCAN&quot;</span><span class="p">,</span> <span class="n">hdbscan</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;OPTICS&quot;</span><span class="p">,</span> <span class="n">optics</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;BIRCH&quot;</span><span class="p">,</span> <span class="n">birch</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Gaussian</span><span class="se">\n</span><span class="s2">Mixture&quot;</span><span class="p">,</span> <span class="n">gmm</span><span class="p">),</span>
+    <span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">file_read</span><span class="p">:</span>
+    
+        <span class="n">selected</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">MultiSelect</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Select a clustering method&quot;</span><span class="p">,</span> 
+                              <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MiniBatch</span><span class="se">\n</span><span class="s2">KMeans&quot;</span><span class="p">,</span> <span class="s2">&quot;Affinity</span><span class="se">\n</span><span class="s2">Propagation&quot;</span><span class="p">,</span> <span class="s2">&quot;MeanShift&quot;</span><span class="p">,</span> <span class="s2">&quot;Spectral</span><span class="se">\n</span><span class="s2">Clustering&quot;</span><span class="p">,</span><span class="s2">&quot;Ward&quot;</span><span class="p">,</span> <span class="s2">&quot;Agglomerative</span><span class="se">\n</span><span class="s2">Clustering&quot;</span><span class="p">,</span> <span class="s2">&quot;DBSCAN&quot;</span><span class="p">,</span> <span class="s2">&quot;HDBSCAN&quot;</span><span class="p">,</span> <span class="s2">&quot;OPTICS&quot;</span><span class="p">,</span> <span class="s2">&quot;BIRCH&quot;</span><span class="p">,</span> <span class="s2">&quot;Gaussian</span><span class="se">\n</span><span class="s2">Mixture&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">],</span>
+                              <span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">],</span>
+                         <span class="c1">#     choices=[two_means, affinity_propagation, ms, spectral, ward, average_linkage, dbscan, hdbscan, optics, birch, gmm], </span>
+                              <span class="n">url_key</span><span class="o">=</span><span class="s2">&quot;selected&quot;</span><span class="p">)</span>
+    
+        <span class="n">new_clustering_algorithms</span> <span class="o">=</span> <span class="p">[</span><span class="n">ali</span> <span class="k">for</span> <span class="n">ali</span> <span class="ow">in</span> <span class="n">clustering_algorithms</span> <span class="k">if</span> <span class="n">ali</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">selected</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
+    
+        <span class="k">if</span> <span class="s2">&quot;all&quot;</span> <span class="ow">in</span> <span class="n">selected</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+            <span class="n">new_clustering_algorithms</span> <span class="o">=</span> <span class="n">clustering_algorithms</span>
+        
+    
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">algorithm</span> <span class="ow">in</span> <span class="n">new_clustering_algorithms</span><span class="p">:</span>
+            <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        
+            <span class="c1"># catch warnings related to kneighbors_graph</span>
+            <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span>
+                    <span class="s2">&quot;ignore&quot;</span><span class="p">,</span>
+                    <span class="n">message</span><span class="o">=</span><span class="s2">&quot;the number of connected components of the &quot;</span>
+                    <span class="o">+</span> <span class="s2">&quot;connectivity matrix is [0-9]{1,2}&quot;</span>
+                    <span class="o">+</span> <span class="s2">&quot; &gt; 1. Completing it to avoid stopping the tree early.&quot;</span><span class="p">,</span>
+                    <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span>
+                    <span class="s2">&quot;ignore&quot;</span><span class="p">,</span>
+                    <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Graph is not fully connected, spectral embedding&quot;</span>
+                    <span class="o">+</span> <span class="s2">&quot; may not work as expected.&quot;</span><span class="p">,</span>
+                    <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">algorithm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        
+            <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">algorithm</span><span class="p">,</span> <span class="s2">&quot;labels_&quot;</span><span class="p">):</span>
+                <span class="n">y_pred</span> <span class="o">=</span> <span class="n">algorithm</span><span class="o">.</span><span class="n">labels_</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">y_pred</span> <span class="o">=</span> <span class="n">algorithm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        
+            <span class="n">axt</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">clustering_algorithms</span><span class="p">),</span> <span class="n">plot_num</span><span class="p">)</span>
+            <span class="n">axt</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        
+            <span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="nb">list</span><span class="p">(</span>
+                    <span class="n">islice</span><span class="p">(</span>
+                        <span class="n">cycle</span><span class="p">(</span>
+                            <span class="p">[</span>
+                                <span class="s2">&quot;#377eb8&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;#ff7f00&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;#4daf4a&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;#f781bf&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;#a65628&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;#984ea3&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;#999999&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;#e41a1c&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;#dede00&quot;</span><span class="p">,</span>
+                            <span class="p">]</span>
+                        <span class="p">),</span>
+                        <span class="nb">int</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="c1"># add black color for outliers (if any)</span>
+            <span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;#000000&quot;</span><span class="p">])</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">y_pred</span><span class="p">])</span>
+        
+            <span class="c1"># plt.xlim(-2.5, 2.5)</span>
+            <span class="c1"># plt.ylim(-2.5, 2.5)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(())</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(())</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+                <span class="mf">0.99</span><span class="p">,</span>
+                <span class="mf">0.01</span><span class="p">,</span>
+                <span class="p">(</span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">s&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">),</span>
+                <span class="n">transform</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+                <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                <span class="n">horizontalalignment</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">plot_num</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="c1"># sort data points to groups</span>
+            <span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">df_out</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
+            <span class="n">clusters</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">df_out</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;labels&#39;</span><span class="p">)]</span>
+            <span class="n">combined_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span>
+
+            <span class="c1"># Save combined data to a CSV file</span>
+            <span class="c1"># combined_data.to_csv(&#39;output\cluster_output.csv&#39;, index=False)</span>
+            
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./analytics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-results-for-the-fluent-analysis-data">Clustering results for the fluent analysis data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-results">Clustering results</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PPH Industries, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
