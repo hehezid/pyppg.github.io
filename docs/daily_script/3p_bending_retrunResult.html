@@ -1,0 +1,708 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3P Bending Simulation (ABAQUS) &#8212; PyPPG Handbook (HADES)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.06696a45b937849642cfa8e412e8bfb79927fd8cf52bbc9bf40c63c5e8cfefe3.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"2d3992e1df094a60bd639b16220d961a": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "initial"}}, "6c189699f99f4d11ab98b7f0ac3fbf25": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e21ddeaa5fef4a70ad1d08e00a0112d3": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "DropdownModel", "_options_labels": ["Max Principal Stress", "Max Principal Strain", "Max Principal Plastic Strain"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "DropdownView", "description": "Select an output field", "description_allow_html": false, "disabled": false, "index": 0, "layout": "IPY_MODEL_6c189699f99f4d11ab98b7f0ac3fbf25", "style": "IPY_MODEL_2d3992e1df094a60bd639b16220d961a", "tabbable": null, "tooltip": null}}, "4ed7221075c44d639a6090ae5cda6689": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "initial"}}, "25ad48010a6746af89df35824b2824ab": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1acfde1346a143978e50135c0b5a4e7c": {"model_name": "BoundedFloatTextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "BoundedFloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "Gel coat (layer 1) thickness (unit: mm) (between 0.3048 and 0.762)", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_25ad48010a6746af89df35824b2824ab", "max": 10.0, "min": 0.0, "step": 0.01, "style": "IPY_MODEL_4ed7221075c44d639a6090ae5cda6689", "tabbable": null, "tooltip": null, "value": 0.3048}}, "5b0181879c5e488ba929fde10ad53fec": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "initial"}}, "b990ba1749284f9fbf3dc58df5ec619f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "0c88dffa205440179f4fbb3933c87b26": {"model_name": "BoundedFloatTextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "BoundedFloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "PTMEG 1000 A (layer 2) thickness (unit: mm) (between 2.54 and 3.175)", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_b990ba1749284f9fbf3dc58df5ec619f", "max": 10.0, "min": 0.0, "step": 0.01, "style": "IPY_MODEL_5b0181879c5e488ba929fde10ad53fec", "tabbable": null, "tooltip": null, "value": 2.54}}, "bf9666ad4d8f4e0cb1cc172891ffff6f": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "initial"}}, "dd6e3d38b96e4bc0b5f6aa68e41f3c38": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7a153642995f45a78f1e8a8ab7eeeb14": {"model_name": "BoundedFloatTextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "BoundedFloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "Foam (layer 3) thickness (unit: mm) (between 5.08 and 6.35)", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_dd6e3d38b96e4bc0b5f6aa68e41f3c38", "max": 10.0, "min": 0.0, "step": 0.01, "style": "IPY_MODEL_bf9666ad4d8f4e0cb1cc172891ffff6f", "tabbable": null, "tooltip": null, "value": 5.08}}, "e00aef8953354a4c9ab58f7c7deb635a": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "initial"}}, "ce80c32265cd4d3096c14f55e061c7fb": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ce504386be4c4d3cbabff6ee5a18abcd": {"model_name": "BoundedFloatTextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "BoundedFloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "Alphagard 7.5 (layer 4) thickness (unit: mm) (between 2.54 and 3.175)", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_ce80c32265cd4d3096c14f55e061c7fb", "max": 10.0, "min": 0.0, "step": 0.01, "style": "IPY_MODEL_e00aef8953354a4c9ab58f7c7deb635a", "tabbable": null, "tooltip": null, "value": 2.54}}, "5f13922bd94b40f797188112f4faa1ef": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "40ea2b861f7041949eb2404ba74e4269": {"model_name": "ButtonStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ButtonStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "button_color": null, "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "88b81f990eaa4f8195b000d0524baf20": {"model_name": "ButtonModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ButtonModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ButtonView", "button_style": "primary", "description": "Save ouput image", "disabled": false, "icon": "", "layout": "IPY_MODEL_5f13922bd94b40f797188112f4faa1ef", "style": "IPY_MODEL_40ea2b861f7041949eb2404ba74e4269", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'daily_script/3p_bending_retrunResult';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/PPG_Logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/PPG_Logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Geotechnics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/emabank_settlement.html">Settlement Calculations of Embankments new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/footing_bearing_capacity.html">Bearing Capacity of Shallow Foundations new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/spt_interpolation.html">SPT Data Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/vert_test.html">Settlement Calculations of Embankments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/footing_cal.html">Bearing Capacity of Shallow Foundations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/notebooks.html">Content with notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Small Jobs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../small_jobs/2021-0802_Zach_Gardner.html">2021-0802 Zach Gardner</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analytics/fluent_cluster.html">Data Clustering - separate fluent data (demo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analytics/Lorenz_voila.html">The Lorenz Differential Equations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">daily_script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="post_cfd.html">Plot Homogeneity Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lorenz_voila.html">The Lorenz Differential Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="http://20.228.164.26/hub/user-redirect/git-pull?repo=https%3A//github.com/hehezid/pyppg-handbook&urlpath=lab/tree/pyppg-handbook/handbook/daily_script/3p_bending_retrunResult.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/daily_script/3p_bending_retrunResult.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3P Bending Simulation (ABAQUS)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3P Bending Simulation (ABAQUS)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-closest-simulation-retrun-based-on-analytical-results">Return closest simulation retrun based on analytical results.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-thickness">Layer Thickness</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-type-or-slide-the-thickness-of-each-layer-built-multiple-actions-for-demo">Select, Type or Slide the thickness of each layer. Built multiple actions for demo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#field-plot">Field plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-curve-1-inch-width">Reaction curve (1 inch width)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vertical-displacement-reaction-force-curve">(Vertical displacement - reaction force curve)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mercury</span> <span class="k">as</span> <span class="nn">mr</span> <span class="c1"># for widgets</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+
+
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">islice</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Supporting functions</span>
+<span class="k">def</span> <span class="nf">closest</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+    <span class="c1"># given a list of value &quot;lst&quot; and a target value &quot;K&quot;, return the closest value in lst to K    </span>
+    <span class="k">return</span> <span class="n">lst</span><span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="nb">abs</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">K</span><span class="p">))]</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">App</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;3P Bending Simulation&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Return the closest simulation result for the selected layer thickness&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Mercury Application</h3><small>This output won't appear in the web app.</small></div></div>
+</div>
+<section id="p-bending-simulation-abaqus">
+<h1>3P Bending Simulation (ABAQUS)<a class="headerlink" href="#p-bending-simulation-abaqus" title="Permalink to this headline">#</a></h1>
+<section id="return-closest-simulation-retrun-based-on-analytical-results">
+<h2>Return closest simulation retrun based on analytical results.<a class="headerlink" href="#return-closest-simulation-retrun-based-on-analytical-results" title="Permalink to this headline">#</a></h2>
+<p>Add background information or introduction here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define thichness of each layer</span>
+<span class="n">layer1_thickness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3048</span><span class="p">,</span> <span class="mf">0.362</span><span class="p">,</span> <span class="mf">0.4191</span><span class="p">,</span> <span class="mf">0.4762</span><span class="p">,</span> <span class="mf">0.5334</span><span class="p">,</span> <span class="mf">0.5911</span><span class="p">,</span> <span class="mf">0.6477</span><span class="p">,</span> <span class="mf">0.7049</span><span class="p">,</span> <span class="mf">0.762</span><span class="p">])</span> <span class="c1">#gelcoat</span>
+<span class="n">layer2_thickness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.54</span><span class="p">,</span> <span class="mf">2.62</span><span class="p">,</span> <span class="mf">2.699</span><span class="p">,</span> <span class="mf">2.778</span><span class="p">,</span> <span class="mf">2.8575</span><span class="p">,</span> <span class="mf">2.937</span><span class="p">,</span> <span class="mf">3.016</span><span class="p">,</span> <span class="mf">3.096</span><span class="p">,</span> <span class="mf">3.175</span><span class="p">])</span> <span class="c1"># (more important)</span>
+<span class="n">layer3_thickness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.08</span><span class="p">,</span> <span class="mf">5.715</span><span class="p">,</span> <span class="mf">6.35</span><span class="p">])</span>
+<span class="n">layer4_thickness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.54</span><span class="p">,</span> <span class="mf">2.699</span><span class="p">,</span> <span class="mf">2.8575</span><span class="p">,</span> <span class="mf">3.016</span><span class="p">,</span> <span class="mf">3.175</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Select output field (Max Principal Stress, Total Strain, Plastic Strain, etc.)</p></li>
+<li><p>Slide thickness of each layer.</p></li>
+<li><p>Download results from the output widget.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select field variable</span>
+    
+<span class="n">output_field</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Select an output field&quot;</span><span class="p">,</span> 
+                              <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Max Principal Stress&quot;</span><span class="p">,</span> <span class="s2">&quot;Max Principal Strain&quot;</span><span class="p">,</span> <span class="s2">&quot;Max Principal Plastic Strain&quot;</span><span class="p">],</span>
+                              <span class="n">url_key</span><span class="o">=</span><span class="s2">&quot;output_field&quot;</span><span class="p">)</span>
+
+<span class="n">img_folder</span> <span class="o">=</span> <span class="p">(</span><span class="n">output_field</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+            
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e21ddeaa5fef4a70ad1d08e00a0112d3"}</script></div>
+</div>
+</section>
+</section>
+<section id="layer-thickness">
+<h1>Layer Thickness<a class="headerlink" href="#layer-thickness" title="Permalink to this headline">#</a></h1>
+<section id="select-type-or-slide-the-thickness-of-each-layer-built-multiple-actions-for-demo">
+<h2>Select, Type or Slide the thickness of each layer. Built multiple actions for demo.<a class="headerlink" href="#select-type-or-slide-the-thickness-of-each-layer-built-multiple-actions-for-demo" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ly1_select_temp</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">Numeric</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">0.3048</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Gel coat (layer 1) thickness (unit: mm) (between 0.3048 and 0.762)&quot;</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">ly1_select</span> <span class="o">=</span> <span class="n">ly1_select_temp</span><span class="o">.</span><span class="n">value</span>
+
+<span class="n">ly2_select</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">Numeric</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">2.54</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;PTMEG 1000 A (layer 2) thickness (unit: mm) (between 2.54 and 3.175)&quot;</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+
+<span class="n">ly3_select</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">Numeric</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">5.08</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Foam (layer 3) thickness (unit: mm) (between 5.08 and 6.35)&quot;</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+
+<span class="n">ly4_select</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">Numeric</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">2.54</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Alphagard 7.5 (layer 4) thickness (unit: mm) (between 2.54 and 3.175)&quot;</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+
+<span class="c1"># find closest simulation and return picture</span>
+
+<span class="n">ly1_f</span> <span class="o">=</span> <span class="n">closest</span><span class="p">(</span><span class="n">layer1_thickness</span><span class="p">,</span> <span class="n">ly1_select</span><span class="p">)</span>
+<span class="n">ly2_f</span> <span class="o">=</span> <span class="n">closest</span><span class="p">(</span><span class="n">layer2_thickness</span><span class="p">,</span> <span class="n">ly2_select</span><span class="p">)</span>
+<span class="n">ly3_f</span> <span class="o">=</span> <span class="n">closest</span><span class="p">(</span><span class="n">layer3_thickness</span><span class="p">,</span> <span class="n">ly3_select</span><span class="p">)</span>
+<span class="n">ly4_f</span> <span class="o">=</span> <span class="n">closest</span><span class="p">(</span><span class="n">layer4_thickness</span><span class="p">,</span> <span class="n">ly4_select</span><span class="p">)</span>
+
+<span class="n">job_name</span> <span class="o">=</span> <span class="s1">&#39;Job-&#39;</span><span class="o">+</span><span class="s1">&#39;ly1t-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ly1_f</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;ly2t-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ly2_f</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> \
+                    <span class="s1">&#39;ly3t-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ly3_f</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;ly4t-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ly4_f</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">img_name</span> <span class="o">=</span> <span class="n">job_name</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span>
+<span class="n">img_path</span> <span class="o">=</span> <span class="n">img_folder</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">job_name</span> <span class="o">+</span> <span class="s1">&#39;.tif&#39;</span>
+
+<span class="c1"># plot reaction curve</span>
+<span class="n">curve_name</span> <span class="o">=</span> <span class="s1">&#39;LoadForceCurve</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">job_name</span> <span class="o">+</span> <span class="s1">&#39;.rpt&#39;</span>
+<span class="n">rf_curve</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="n">curve_name</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="n">rf_curve</span> <span class="o">=</span> <span class="n">rf_curve</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;_temp_1&#39;</span><span class="p">:</span> <span class="s1">&#39;reaction_force&#39;</span><span class="p">})</span>
+<span class="n">rf_curve</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rf_curve</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">*</span><span class="mf">24.5</span>
+<span class="n">rf_curve</span><span class="p">[</span><span class="s1">&#39;reaction_force&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rf_curve</span><span class="p">[</span><span class="s1">&#39;reaction_force&#39;</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">25.4</span>  <span class="c1"># 1 inch width</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1acfde1346a143978e50135c0b5a4e7c"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0c88dffa205440179f4fbb3933c87b26"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7a153642995f45a78f1e8a8ab7eeeb14"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ce504386be4c4d3cbabff6ee5a18abcd"}</script></div>
+</div>
+</section>
+<section id="field-plot">
+<h2>Field plot<a class="headerlink" href="#field-plot" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate field plot</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span> 
+<span class="c1"># plt.imshow(img)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.5, 1130.5, 616.5, -0.5)
+</pre></div>
+</div>
+<img alt="../_images/4d543ba00169c5d4be8ddfaf453fa5d2077d2182008c4ed47d0732761a593a27.png" src="../_images/4d543ba00169c5d4be8ddfaf453fa5d2077d2182008c4ed47d0732761a593a27.png" />
+</div>
+</div>
+</section>
+<section id="reaction-curve-1-inch-width">
+<h2>Reaction curve (1 inch width)<a class="headerlink" href="#reaction-curve-1-inch-width" title="Permalink to this headline">#</a></h2>
+<section id="vertical-displacement-reaction-force-curve">
+<h3>(Vertical displacement - reaction force curve)<a class="headerlink" href="#vertical-displacement-reaction-force-curve" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+
+<span class="n">fig2</span><span class="p">,</span> <span class="n">axs</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot vertical reaction curve</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rf_curve</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">rf_curve</span><span class="p">[</span><span class="s1">&#39;reaction_force&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Vertical displacement - reaction force (N)&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Vertical displacement (mm)&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Vertical reaction force (N)&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="c1"># axs[2].axis(&#39;off&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 1.0, 0.0, 1.0)
+</pre></div>
+</div>
+<img alt="../_images/f6edf2a2075252357739cba9e8f436821f7241276d8fe5568381df0310e0cadb.png" src="../_images/f6edf2a2075252357739cba9e8f436821f7241276d8fe5568381df0310e0cadb.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save output images</span>
+
+<span class="n">mr_output_dir</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">OutputDir</span><span class="p">()</span>
+
+<span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;output&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">img_folder</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">job_name</span> <span class="o">+</span> <span class="s1">&#39;field&#39;</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span>
+<span class="n">output_path2</span> <span class="o">=</span> <span class="s1">&#39;output&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">job_name</span> <span class="o">+</span> <span class="s1">&#39;curve&#39;</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span>
+
+<span class="n">save_button</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Save ouput image&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">save_button</span><span class="o">.</span><span class="n">clicked</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output is saved to: &quot;</span> <span class="o">+</span> <span class="n">output_path</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="n">fig2</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_path2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Output Directory</h3><small>This output won't appear in the web app.</small></div><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "88b81f990eaa4f8195b000d0524baf20"}</script></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./daily_script"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3P Bending Simulation (ABAQUS)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-closest-simulation-retrun-based-on-analytical-results">Return closest simulation retrun based on analytical results.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-thickness">Layer Thickness</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-type-or-slide-the-thickness-of-each-layer-built-multiple-actions-for-demo">Select, Type or Slide the thickness of each layer. Built multiple actions for demo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#field-plot">Field plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-curve-1-inch-width">Reaction curve (1 inch width)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vertical-displacement-reaction-force-curve">(Vertical displacement - reaction force curve)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PPH Industries, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

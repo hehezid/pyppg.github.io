@@ -1,0 +1,1910 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; PyPPG Handbook (HADES)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.06696a45b937849642cfa8e412e8bfb79927fd8cf52bbc9bf40c63c5e8cfefe3.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'daily_script/czm_post_plot';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/PPG_Logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/PPG_Logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Geotechnics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/emabank_settlement.html">Settlement Calculations of Embankments new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/footing_bearing_capacity.html">Bearing Capacity of Shallow Foundations new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/spt_interpolation.html">SPT Data Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/vert_test.html">Settlement Calculations of Embankments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/footing_cal.html">Bearing Capacity of Shallow Foundations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geotechnics/notebooks.html">Content with notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Small Jobs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../small_jobs/2021-0802_Zach_Gardner.html">2021-0802 Zach Gardner</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analytics/fluent_cluster.html">Data Clustering - separate fluent data (demo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analytics/Lorenz_voila.html">The Lorenz Differential Equations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">daily_script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="post_cfd.html">Plot Homogeneity Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lorenz_voila.html">The Lorenz Differential Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="http://20.228.164.26/hub/user-redirect/git-pull?repo=https%3A//github.com/hehezid/pyppg-handbook&urlpath=lab/tree/pyppg-handbook/handbook/daily_script/czm_post_plot.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/daily_script/czm_post_plot.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binned_statistic</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get nodal and elemental connectivity</span>
+<span class="c1"># read elemental nodal information</span>
+<span class="n">cz_ele_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/cz_ele_info.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> 
+<span class="n">cz_index</span> <span class="o">=</span> <span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">cz_ele_info</span> <span class="o">=</span> <span class="n">cz_ele_info</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">bulk_ele_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/bulk_ele_info.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> 
+<span class="n">bulk_index</span> <span class="o">=</span> <span class="n">bulk_ele_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">bulk_ele_info</span> <span class="o">=</span> <span class="n">bulk_ele_info</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">node_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/node_info.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># # index</span>
+<span class="n">num_cz</span> <span class="o">=</span> <span class="n">cz_ele_info</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">num_bulk</span> <span class="o">=</span> <span class="n">bulk_ele_info</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">num_node</span> <span class="o">=</span> <span class="n">node_info</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Get nodal and elemental connectivity</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># read elemental nodal information</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">cz_ele_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/cz_ele_info.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">cz_index</span> <span class="o">=</span> <span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">cz_ele_info</span> <span class="o">=</span> <span class="n">cz_ele_info</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="nn">File ~\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\pandas\io\parsers\readers.py:912,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">899</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">900</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">901</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">908</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">909</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">910</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">912</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\pandas\io\parsers\readers.py:577,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">577</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\pandas\io\parsers\readers.py:1407,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1404</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1406</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1407</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\pandas\io\parsers\readers.py:1661,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1659</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1660</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1661</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1662</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1663</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1664</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1665</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1666</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1667</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1668</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1669</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1670</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1671</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1672</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File ~\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\pandas\io\common.py:859,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">855</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">859</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">866</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;czm_post/cz_ele_info.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#collect all field data and all parsed displacement data</span>
+
+<span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_cz_maxprincipalstress.rpt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">cz_stress_830B</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="n">df_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_100shear_cz_maxprincipalstress.rpt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">cz_stress_830B_100shear</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="n">df_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_100stiff_100shear_cz_maxprincipalstress.rpt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">cz_stress_830B_100stiff_100shear</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="n">df_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_cz_maxprincipalstress.rpt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">cz_stress_860D</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="n">df_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_100shear_cz_maxprincipalstress.rpt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">cz_stress_860D_100shear</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="n">df_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_100stiff_100shear_cz_maxprincipalstress.rpt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">cz_stress_860D_100stiff_100shear</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="n">df_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># collect field data</span>
+<span class="n">nu1_830B</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_20stiff_nu1_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nu2_830B</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_20stiff_nu2_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nx_830B</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_20stiff_nx_output.csv&#39;</span><span class="p">)</span>
+<span class="n">ny_830B</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_20stiff_ny_output.csv&#39;</span><span class="p">)</span>
+
+<span class="n">nu1_830B_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_20stiff_100shear_nu1_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nu2_830B_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_20stiff_100shear_nu2_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nx_830B_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_20stiff_100shear_nx_output.csv&#39;</span><span class="p">)</span>
+<span class="n">ny_830B_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_20stiff_100shear_ny_output.csv&#39;</span><span class="p">)</span>
+
+<span class="n">nu1_830B_100stiff_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_100stiff_100shear_nu1_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nu2_830B_100stiff_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_100stiff_100shear_nu2_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nx_830B_100stiff_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_100stiff_100shear_nx_output.csv&#39;</span><span class="p">)</span>
+<span class="n">ny_830B_100stiff_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_bend90_100stiff_100shear_ny_output.csv&#39;</span><span class="p">)</span>
+
+<span class="n">nu1_860D</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_20stiff_nu1_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nu2_860D</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_20stiff_nu2_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nx_860D</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_20stiff_nx_output.csv&#39;</span><span class="p">)</span>
+<span class="n">ny_860D</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_20stiff_ny_output.csv&#39;</span><span class="p">)</span>
+
+<span class="n">nu1_860D_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_20stiff_100shear_nu1_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nu2_860D_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_20stiff_100shear_nu2_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nx_860D_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_20stiff_100shear_nx_output.csv&#39;</span><span class="p">)</span>
+<span class="n">ny_860D_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_20stiff_100shear_ny_output.csv&#39;</span><span class="p">)</span>
+
+<span class="n">nu1_860D_100stiff_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_100stiff_100shear_nu1_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nu2_860D_100stiff_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_100stiff_100shear_nu2_output.csv&#39;</span><span class="p">)</span>
+<span class="n">nx_860D_100stiff_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_100stiff_100shear_nx_output.csv&#39;</span><span class="p">)</span>
+<span class="n">ny_860D_100stiff_100shear</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_bend90_100stiff_100shear_ny_output.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the x coordinates (center) of each cz_ele</span>
+<span class="c1"># thickness of each cz_ele (measure opening)</span>
+
+<span class="n">cz_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">num_cz</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">cz_delta_beginning</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">num_cz</span><span class="p">])</span>
+
+<span class="n">cz_delta_830B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">num_cz</span><span class="p">])</span>
+<span class="n">cz_delta_830B_100shear</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">num_cz</span><span class="p">])</span>
+<span class="n">cz_delta_830B_100stiff_100shear</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">num_cz</span><span class="p">])</span>
+
+<span class="n">cz_delta_860D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">num_cz</span><span class="p">])</span>
+<span class="n">cz_delta_860D_100shear</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">num_cz</span><span class="p">])</span>
+<span class="n">cz_delta_860D_100stiff_100shear</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">num_cz</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_cz</span><span class="p">):</span>
+    <span class="n">cz_i</span> <span class="o">=</span> <span class="n">cz_index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="c1"># for each cz, average the x coord of its four nodes</span>
+
+    <span class="c1">#830B</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="n">nx_830B</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_830B</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="n">ny_830B</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_830B</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="n">nx_830B</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_830B</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="n">ny_830B</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_830B</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cz_delta_830B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">dist</span><span class="p">([</span><span class="n">ct_x_b</span><span class="p">,</span> <span class="n">ct_y_b</span><span class="p">],</span> <span class="p">[</span><span class="n">ct_x_t</span><span class="p">,</span> <span class="n">ct_y_t</span><span class="p">])</span>
+
+    <span class="c1"># 830B_100shear</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="n">nx_830B_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_830B_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="n">ny_830B_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_830B_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="n">nx_830B_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_830B_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="n">ny_830B_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_830B_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cz_delta_830B_100shear</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">dist</span><span class="p">([</span><span class="n">ct_x_b</span><span class="p">,</span> <span class="n">ct_y_b</span><span class="p">],</span> <span class="p">[</span><span class="n">ct_x_t</span><span class="p">,</span> <span class="n">ct_y_t</span><span class="p">])</span>
+
+    <span class="c1"># 830B_100stiff_100shear</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="n">nx_830B_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_830B_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="n">ny_830B_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_830B_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="n">nx_830B_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_830B_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="n">ny_830B_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_830B_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cz_delta_830B_100stiff_100shear</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">dist</span><span class="p">([</span><span class="n">ct_x_b</span><span class="p">,</span> <span class="n">ct_y_b</span><span class="p">],</span> <span class="p">[</span><span class="n">ct_x_t</span><span class="p">,</span> <span class="n">ct_y_t</span><span class="p">])</span>
+
+    <span class="c1"># 860D</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="n">nx_860D</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_860D</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="n">ny_860D</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_860D</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="n">nx_860D</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_860D</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="n">ny_860D</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_860D</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cz_delta_860D</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">dist</span><span class="p">([</span><span class="n">ct_x_b</span><span class="p">,</span> <span class="n">ct_y_b</span><span class="p">],</span> <span class="p">[</span><span class="n">ct_x_t</span><span class="p">,</span> <span class="n">ct_y_t</span><span class="p">])</span>
+
+    <span class="c1"># 860D_100shear</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="n">nx_860D_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_860D_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="n">ny_860D_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_860D_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="n">nx_860D_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_860D_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="n">ny_860D_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_860D_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cz_delta_860D_100shear</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">dist</span><span class="p">([</span><span class="n">ct_x_b</span><span class="p">,</span> <span class="n">ct_y_b</span><span class="p">],</span> <span class="p">[</span><span class="n">ct_x_t</span><span class="p">,</span> <span class="n">ct_y_t</span><span class="p">])</span>
+
+    <span class="c1"># 860D_100stiff_100shear</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ct_x_b</span> <span class="o">=</span> <span class="n">nx_860D_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_860D_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_b</span> <span class="o">=</span> <span class="n">ny_860D_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_860D_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_x_t</span> <span class="o">=</span> <span class="n">nx_860D_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nx_860D_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ct_y_t</span> <span class="o">=</span> <span class="n">ny_860D_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ny_860D_100stiff_100shear</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">cz_ele_info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">cz_i</span><span class="p">])]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cz_delta_860D_100stiff_100shear</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">dist</span><span class="p">([</span><span class="n">ct_x_b</span><span class="p">,</span> <span class="n">ct_y_b</span><span class="p">],</span> <span class="p">[</span><span class="n">ct_x_t</span><span class="p">,</span> <span class="n">ct_y_t</span><span class="p">])</span>
+
+    <span class="c1"># center location of each cohesive element (potentially a bug)</span>
+    <span class="n">cz_center</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ct_x_b</span> <span class="o">+</span> <span class="n">ct_x_t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span>
+    <span class="n">cz_center</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ct_y_b</span> <span class="o">+</span> <span class="n">ct_y_t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare crack opening</span>
+<span class="n">mean_stat_830B</span> <span class="o">=</span> <span class="n">binned_statistic</span><span class="p">(</span><span class="n">cz_center</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cz_delta_830B</span><span class="p">,</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mean_stat_830B_100shear</span> <span class="o">=</span> <span class="n">binned_statistic</span><span class="p">(</span><span class="n">cz_center</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cz_delta_830B_100shear</span><span class="p">,</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mean_stat_830B_100stiff_100shear</span> <span class="o">=</span> <span class="n">binned_statistic</span><span class="p">(</span><span class="n">cz_center</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cz_delta_830B_100stiff_100shear</span><span class="p">,</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">mean_stat_860D</span> <span class="o">=</span> <span class="n">binned_statistic</span><span class="p">(</span><span class="n">cz_center</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cz_delta_860D</span><span class="p">,</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mean_stat_860D_100shear</span> <span class="o">=</span> <span class="n">binned_statistic</span><span class="p">(</span><span class="n">cz_center</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cz_delta_860D_100shear</span><span class="p">,</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mean_stat_860D_100stiff_100shear</span> <span class="o">=</span> <span class="n">binned_statistic</span><span class="p">(</span><span class="n">cz_center</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cz_delta_860D_100stiff_100shear</span><span class="p">,</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+
+<span class="n">fig_open</span><span class="p">,</span> <span class="n">ax_open</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax_open</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">mean_stat_830B</span><span class="o">.</span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">mean_stat_830B</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;830B&#39;</span><span class="p">)</span>
+<span class="n">ax_open</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">mean_stat_830B_100shear</span><span class="o">.</span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">mean_stat_830B_100shear</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;830B 100shear&#39;</span><span class="p">)</span>
+<span class="n">ax_open</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">mean_stat_830B_100stiff_100shear</span><span class="o">.</span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">mean_stat_830B_100stiff_100shear</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;830B 100stiff 100shear&#39;</span><span class="p">)</span>
+
+<span class="n">ax_open</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">mean_stat_860D</span><span class="o">.</span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">mean_stat_860D</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;860D&#39;</span><span class="p">)</span>
+<span class="n">ax_open</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">mean_stat_860D_100shear</span><span class="o">.</span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">mean_stat_860D_100shear</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;860D 100shear&#39;</span><span class="p">)</span>
+<span class="n">ax_open</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">mean_stat_860D_100stiff_100shear</span><span class="o">.</span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">mean_stat_860D_100stiff_100shear</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;860D 100stiff 100shear&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1abe2c2ad90&gt;]
+</pre></div>
+</div>
+<img alt="../_images/4aea9b43889ccb63afaf75d307b83ad81d3060c8511cc6a05986d3abf8d32fd4.png" src="../_images/4aea9b43889ccb63afaf75d307b83ad81d3060c8511cc6a05986d3abf8d32fd4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare crack opening</span>
+
+<span class="n">fig_open</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">mean_stat_830B_100stiff_100shear</span><span class="o">.</span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">mean_stat_830B_100stiff_100shear</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;830B 100stiff 100shear&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">mean_stat_860D_100stiff_100shear</span><span class="o">.</span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">mean_stat_860D_100stiff_100shear</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;860D 100stiff 100shear&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/83faa47a5ddc934bc802c57f9c3f1fb74db1ac4bbda69eaff04f055e2be99ff6.png" src="../_images/83faa47a5ddc934bc802c57f9c3f1fb74db1ac4bbda69eaff04f055e2be99ff6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the stress field</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;RdYlBu_r&#39;</span><span class="p">)</span>
+<span class="n">fig_open_field</span><span class="p">,</span> <span class="n">ax_open_field</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">ax_open_field</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cz_delta_830B</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;830B&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.004</span><span class="p">,</span><span class="mf">0.001</span><span class="p">])</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">ax_open_field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cz_delta_830B_100shear</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;830B 100shear&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.004</span><span class="p">,</span><span class="mf">0.001</span><span class="p">])</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+
+<span class="n">t2</span> <span class="o">=</span> <span class="n">ax_open_field</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cz_delta_860D</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;860D&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.004</span><span class="p">,</span><span class="mf">0.001</span><span class="p">])</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+
+<span class="n">t3</span> <span class="o">=</span> <span class="n">ax_open_field</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cz_delta_860D_100shear</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;860D 100shear&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.004</span><span class="p">,</span><span class="mf">0.001</span><span class="p">])</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">t3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1abd5b50d90&gt;
+</pre></div>
+</div>
+<img alt="../_images/a41887776a512ad55edccbb78a7116cebec099944d86037c51b2195aa45a4e0b.png" src="../_images/a41887776a512ad55edccbb78a7116cebec099944d86037c51b2195aa45a4e0b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the stress field</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;RdYlBu_r&#39;</span><span class="p">)</span>
+<span class="n">fig_open_field</span><span class="p">,</span> <span class="n">ax_open_field</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">ax_open_field</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cz_stress_830B_100shear</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1000</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;830B&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.004</span><span class="p">,</span><span class="mf">0.001</span><span class="p">])</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">ax_open_field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cz_stress_860D_100shear</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1000</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;830B 100shear&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.004</span><span class="p">,</span><span class="mf">0.001</span><span class="p">])</span>
+<span class="n">ax_open_field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1ab1c10a590&gt;
+</pre></div>
+</div>
+<img alt="../_images/7c4fc5a9685a7051e1b605e595d29d2faeb359f15aa3f90eac66d82a90b5378a.png" src="../_images/7c4fc5a9685a7051e1b605e595d29d2faeb359f15aa3f90eac66d82a90b5378a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cz_stress_830B_100stiff_100shear</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>3</th>
+      <th>5</th>
+      <th>7</th>
+      <th>9</th>
+      <th>11</th>
+      <th>13</th>
+      <th>15</th>
+      <th>17</th>
+      <th>19</th>
+      <th>...</th>
+      <th>12577</th>
+      <th>12579</th>
+      <th>12581</th>
+      <th>12583</th>
+      <th>12585</th>
+      <th>12587</th>
+      <th>12589</th>
+      <th>12591</th>
+      <th>12593</th>
+      <th>12595</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000013</td>
+      <td>0.000197</td>
+      <td>0.00735</td>
+      <td>0.000017</td>
+      <td>0.000008</td>
+      <td>0.00717</td>
+      <td>0.000009</td>
+      <td>0.000258</td>
+      <td>0.00756</td>
+      <td>0.000022</td>
+      <td>...</td>
+      <td>0.000217</td>
+      <td>0.000215</td>
+      <td>0.000211</td>
+      <td>0.000203</td>
+      <td>0.000190</td>
+      <td>0.000169</td>
+      <td>0.000137</td>
+      <td>0.000115</td>
+      <td>0.000144</td>
+      <td>0.000260</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000004</td>
+      <td>0.000018</td>
+      <td>0.00415</td>
+      <td>0.000005</td>
+      <td>0.000005</td>
+      <td>0.00360</td>
+      <td>0.000005</td>
+      <td>0.000036</td>
+      <td>0.00424</td>
+      <td>0.000007</td>
+      <td>...</td>
+      <td>0.000391</td>
+      <td>0.000389</td>
+      <td>0.000387</td>
+      <td>0.000382</td>
+      <td>0.000374</td>
+      <td>0.000361</td>
+      <td>0.000339</td>
+      <td>0.000301</td>
+      <td>0.000241</td>
+      <td>0.000155</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.012000</td>
+      <td>0.000232</td>
+      <td>0.00740</td>
+      <td>0.008700</td>
+      <td>0.015100</td>
+      <td>0.01010</td>
+      <td>0.011900</td>
+      <td>0.000283</td>
+      <td>0.00751</td>
+      <td>0.009050</td>
+      <td>...</td>
+      <td>0.000519</td>
+      <td>0.000519</td>
+      <td>0.000521</td>
+      <td>0.000526</td>
+      <td>0.000534</td>
+      <td>0.000548</td>
+      <td>0.000573</td>
+      <td>0.000615</td>
+      <td>0.000684</td>
+      <td>0.000788</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.041300</td>
+      <td>0.000681</td>
+      <td>0.02960</td>
+      <td>0.037000</td>
+      <td>0.045600</td>
+      <td>0.03360</td>
+      <td>0.041500</td>
+      <td>0.000849</td>
+      <td>0.02980</td>
+      <td>0.038000</td>
+      <td>...</td>
+      <td>0.000620</td>
+      <td>0.000623</td>
+      <td>0.000630</td>
+      <td>0.000646</td>
+      <td>0.000673</td>
+      <td>0.000719</td>
+      <td>0.000801</td>
+      <td>0.000941</td>
+      <td>0.001170</td>
+      <td>0.001560</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>10.600000</td>
+      <td>0.104000</td>
+      <td>8.17000</td>
+      <td>10.300000</td>
+      <td>10.900000</td>
+      <td>8.50000</td>
+      <td>10.700000</td>
+      <td>0.145000</td>
+      <td>8.14000</td>
+      <td>10.600000</td>
+      <td>...</td>
+      <td>0.028900</td>
+      <td>0.028700</td>
+      <td>0.028300</td>
+      <td>0.026600</td>
+      <td>0.023900</td>
+      <td>0.019600</td>
+      <td>0.012400</td>
+      <td>0.001560</td>
+      <td>0.023200</td>
+      <td>0.117000</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>10.600000</td>
+      <td>0.104000</td>
+      <td>8.17000</td>
+      <td>10.300000</td>
+      <td>10.900000</td>
+      <td>8.50000</td>
+      <td>10.700000</td>
+      <td>0.145000</td>
+      <td>8.14000</td>
+      <td>10.500000</td>
+      <td>...</td>
+      <td>0.028900</td>
+      <td>0.028800</td>
+      <td>0.028300</td>
+      <td>0.026600</td>
+      <td>0.023900</td>
+      <td>0.019600</td>
+      <td>0.012400</td>
+      <td>0.001570</td>
+      <td>0.023200</td>
+      <td>0.117000</td>
+    </tr>
+    <tr>
+      <th>1000</th>
+      <td>10.600000</td>
+      <td>0.104000</td>
+      <td>8.16000</td>
+      <td>10.300000</td>
+      <td>10.800000</td>
+      <td>8.49000</td>
+      <td>10.700000</td>
+      <td>0.145000</td>
+      <td>8.14000</td>
+      <td>10.500000</td>
+      <td>...</td>
+      <td>0.028900</td>
+      <td>0.028800</td>
+      <td>0.028300</td>
+      <td>0.026600</td>
+      <td>0.023900</td>
+      <td>0.019600</td>
+      <td>0.012400</td>
+      <td>0.001570</td>
+      <td>0.023200</td>
+      <td>0.117000</td>
+    </tr>
+    <tr>
+      <th>1001</th>
+      <td>10.600000</td>
+      <td>0.104000</td>
+      <td>8.16000</td>
+      <td>10.300000</td>
+      <td>10.800000</td>
+      <td>8.49000</td>
+      <td>10.600000</td>
+      <td>0.145000</td>
+      <td>8.13000</td>
+      <td>10.500000</td>
+      <td>...</td>
+      <td>0.028900</td>
+      <td>0.028800</td>
+      <td>0.028300</td>
+      <td>0.026600</td>
+      <td>0.023900</td>
+      <td>0.019700</td>
+      <td>0.012400</td>
+      <td>0.001580</td>
+      <td>0.023200</td>
+      <td>0.117000</td>
+    </tr>
+    <tr>
+      <th>1002</th>
+      <td>10.500000</td>
+      <td>0.104000</td>
+      <td>8.16000</td>
+      <td>10.300000</td>
+      <td>10.800000</td>
+      <td>8.49000</td>
+      <td>10.600000</td>
+      <td>0.145000</td>
+      <td>8.13000</td>
+      <td>10.500000</td>
+      <td>...</td>
+      <td>0.028900</td>
+      <td>0.028800</td>
+      <td>0.028300</td>
+      <td>0.026600</td>
+      <td>0.023900</td>
+      <td>0.019700</td>
+      <td>0.012400</td>
+      <td>0.001590</td>
+      <td>0.023100</td>
+      <td>0.117000</td>
+    </tr>
+  </tbody>
+</table>
+<p>1003 rows × 6298 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cz_stress_830B_100stiff_100shear</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1000</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1           10.6
+3          0.104
+5           8.16
+7           10.3
+9           10.8
+          ...   
+12587     0.0196
+12589     0.0124
+12591    0.00157
+12593     0.0232
+12595      0.117
+Name: 1000, Length: 6298, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the stress field</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;RdYlBu_r&#39;</span><span class="p">)</span>
+
+<span class="n">fig_stress</span><span class="p">,</span> <span class="n">ax_stress</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># t = ax_stress[0].scatter( cz_center[:,0], cz_stress_830B_100stiff_100shear.loc[1000,:], label=&#39;830B&#39;, c=cz_stress_830B_100stiff_100shear.loc[1000,:], vmin=0, vmax=10, cmap=cm)</span>
+<span class="c1"># plt.colorbar(t)</span>
+<span class="c1"># ax_stress[0].set_ylim([0,10])</span>
+<span class="c1"># ax_stress[0].set_xlim([0,6])</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">ax_stress</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cz_stress_830B_100shear</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1000</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;830B 100shear&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cz_stress_830B_100shear</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1000</span><span class="p">,:],</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+<span class="n">ax_stress</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">ax_stress</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+
+<span class="c1"># t2 = ax_stress[2].scatter( cz_center[:,0], cz_stress_860D_100stiff_100shear.loc[1000,:], label=&#39;860D&#39;, c=cz_stress_860D_100stiff_100shear.loc[1000,:], vmin=0, vmax=10, cmap=cm)</span>
+<span class="c1"># ax_stress[2].set_ylim([0,10])</span>
+<span class="c1"># ax_stress[2].set_xlim([0,6])</span>
+<span class="c1"># plt.colorbar(t2)</span>
+
+<span class="n">t3</span> <span class="o">=</span> <span class="n">ax_stress</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cz_stress_860D_100shear</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1000</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;860D 100shear&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cz_stress_860D_100shear</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1000</span><span class="p">,:],</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+<span class="n">ax_stress</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">ax_stress</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">t3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1abceaca110&gt;
+</pre></div>
+</div>
+<img alt="../_images/d6189641705e70fbf33f00a238ee768ecb1cdd165d4a661da80214e2a0b396f2.png" src="../_images/d6189641705e70fbf33f00a238ee768ecb1cdd165d4a661da80214e2a0b396f2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_t</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">cz_center</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cz_stress_830B</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1000</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;830B&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cz_stress_830B</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1000</span><span class="p">,:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1abbfc6fdd0&gt;
+</pre></div>
+</div>
+<img alt="../_images/3fedd455bd7bb67df86230cb02beb5928cf41404a6989977a9ccc7b19772af8b.png" src="../_images/3fedd455bd7bb67df86230cb02beb5928cf41404a6989977a9ccc7b19772af8b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cz_stress_830B</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1001, 6298)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cz_stress_830B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>3</th>
+      <th>5</th>
+      <th>7</th>
+      <th>9</th>
+      <th>11</th>
+      <th>13</th>
+      <th>15</th>
+      <th>17</th>
+      <th>19</th>
+      <th>...</th>
+      <th>12577</th>
+      <th>12579</th>
+      <th>12581</th>
+      <th>12583</th>
+      <th>12585</th>
+      <th>12587</th>
+      <th>12589</th>
+      <th>12591</th>
+      <th>12593</th>
+      <th>12595</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000e+00</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.910000e-06</td>
+      <td>0.000047</td>
+      <td>0.001600</td>
+      <td>0.000004</td>
+      <td>0.000002</td>
+      <td>0.001570</td>
+      <td>0.000002</td>
+      <td>0.000063</td>
+      <td>0.001650</td>
+      <td>0.000005</td>
+      <td>...</td>
+      <td>0.000048</td>
+      <td>0.000047</td>
+      <td>0.000046</td>
+      <td>0.000045</td>
+      <td>0.000042</td>
+      <td>0.000037</td>
+      <td>0.000029</td>
+      <td>0.000024</td>
+      <td>0.000032</td>
+      <td>0.000061</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9.040000e-07</td>
+      <td>0.000005</td>
+      <td>0.000903</td>
+      <td>0.000001</td>
+      <td>0.000001</td>
+      <td>0.000787</td>
+      <td>0.000001</td>
+      <td>0.000009</td>
+      <td>0.000926</td>
+      <td>0.000002</td>
+      <td>...</td>
+      <td>0.000091</td>
+      <td>0.000091</td>
+      <td>0.000090</td>
+      <td>0.000089</td>
+      <td>0.000087</td>
+      <td>0.000084</td>
+      <td>0.000079</td>
+      <td>0.000070</td>
+      <td>0.000056</td>
+      <td>0.000037</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.680000e-03</td>
+      <td>0.000048</td>
+      <td>0.001610</td>
+      <td>0.001870</td>
+      <td>0.003340</td>
+      <td>0.002200</td>
+      <td>0.002580</td>
+      <td>0.000061</td>
+      <td>0.001640</td>
+      <td>0.001950</td>
+      <td>...</td>
+      <td>0.000125</td>
+      <td>0.000125</td>
+      <td>0.000126</td>
+      <td>0.000127</td>
+      <td>0.000128</td>
+      <td>0.000132</td>
+      <td>0.000138</td>
+      <td>0.000148</td>
+      <td>0.000165</td>
+      <td>0.000191</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>9.090000e-03</td>
+      <td>0.000150</td>
+      <td>0.006460</td>
+      <td>0.008050</td>
+      <td>0.010000</td>
+      <td>0.007330</td>
+      <td>0.009020</td>
+      <td>0.000192</td>
+      <td>0.006500</td>
+      <td>0.008300</td>
+      <td>...</td>
+      <td>0.000153</td>
+      <td>0.000154</td>
+      <td>0.000155</td>
+      <td>0.000159</td>
+      <td>0.000165</td>
+      <td>0.000176</td>
+      <td>0.000195</td>
+      <td>0.000229</td>
+      <td>0.000285</td>
+      <td>0.000382</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>2.320000e+00</td>
+      <td>0.025000</td>
+      <td>1.790000</td>
+      <td>2.270000</td>
+      <td>2.380000</td>
+      <td>1.860000</td>
+      <td>2.330000</td>
+      <td>0.035800</td>
+      <td>1.780000</td>
+      <td>2.320000</td>
+      <td>...</td>
+      <td>0.006960</td>
+      <td>0.006940</td>
+      <td>0.006890</td>
+      <td>0.006570</td>
+      <td>0.005960</td>
+      <td>0.004970</td>
+      <td>0.003220</td>
+      <td>0.000334</td>
+      <td>0.008650</td>
+      <td>0.032800</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>2.320000e+00</td>
+      <td>0.025000</td>
+      <td>1.790000</td>
+      <td>2.270000</td>
+      <td>2.380000</td>
+      <td>1.860000</td>
+      <td>2.330000</td>
+      <td>0.035700</td>
+      <td>1.780000</td>
+      <td>2.320000</td>
+      <td>...</td>
+      <td>0.006960</td>
+      <td>0.006940</td>
+      <td>0.006890</td>
+      <td>0.006570</td>
+      <td>0.005960</td>
+      <td>0.004970</td>
+      <td>0.003220</td>
+      <td>0.000335</td>
+      <td>0.008640</td>
+      <td>0.032800</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>2.320000e+00</td>
+      <td>0.025000</td>
+      <td>1.790000</td>
+      <td>2.270000</td>
+      <td>2.380000</td>
+      <td>1.860000</td>
+      <td>2.330000</td>
+      <td>0.035700</td>
+      <td>1.780000</td>
+      <td>2.320000</td>
+      <td>...</td>
+      <td>0.006960</td>
+      <td>0.006940</td>
+      <td>0.006890</td>
+      <td>0.006570</td>
+      <td>0.005960</td>
+      <td>0.004970</td>
+      <td>0.003230</td>
+      <td>0.000337</td>
+      <td>0.008640</td>
+      <td>0.032800</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>2.320000e+00</td>
+      <td>0.025000</td>
+      <td>1.790000</td>
+      <td>2.260000</td>
+      <td>2.380000</td>
+      <td>1.860000</td>
+      <td>2.330000</td>
+      <td>0.035700</td>
+      <td>1.780000</td>
+      <td>2.320000</td>
+      <td>...</td>
+      <td>0.006960</td>
+      <td>0.006940</td>
+      <td>0.006890</td>
+      <td>0.006570</td>
+      <td>0.005960</td>
+      <td>0.004970</td>
+      <td>0.003230</td>
+      <td>0.000339</td>
+      <td>0.008630</td>
+      <td>0.032800</td>
+    </tr>
+    <tr>
+      <th>1000</th>
+      <td>2.320000e+00</td>
+      <td>0.025000</td>
+      <td>1.780000</td>
+      <td>2.260000</td>
+      <td>2.380000</td>
+      <td>1.860000</td>
+      <td>2.330000</td>
+      <td>0.035700</td>
+      <td>1.780000</td>
+      <td>2.320000</td>
+      <td>...</td>
+      <td>0.006960</td>
+      <td>0.006940</td>
+      <td>0.006890</td>
+      <td>0.006570</td>
+      <td>0.005970</td>
+      <td>0.004970</td>
+      <td>0.003230</td>
+      <td>0.000340</td>
+      <td>0.008620</td>
+      <td>0.032700</td>
+    </tr>
+  </tbody>
+</table>
+<p>1001 rows × 6298 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_cz_maxprincipalstress.rpt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">cz_stress_830B</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="n">df_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;czm_post/830B_100shear_cz_maxprincipalstress.rpt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">cz_stress_830B_100shear</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="n">df_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_cz_maxprincipalstress.rpt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">cz_stress_860D</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="n">df_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;czm_post/860D_100shear_cz_maxprincipalstress.rpt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">cz_stress_860D_100shear</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="n">df_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cz_stress_830B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>3</th>
+      <th>5</th>
+      <th>7</th>
+      <th>9</th>
+      <th>11</th>
+      <th>13</th>
+      <th>15</th>
+      <th>17</th>
+      <th>19</th>
+      <th>...</th>
+      <th>12577</th>
+      <th>12579</th>
+      <th>12581</th>
+      <th>12583</th>
+      <th>12585</th>
+      <th>12587</th>
+      <th>12589</th>
+      <th>12591</th>
+      <th>12593</th>
+      <th>12595</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000e+00</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.910000e-06</td>
+      <td>0.000047</td>
+      <td>0.001600</td>
+      <td>0.000004</td>
+      <td>0.000002</td>
+      <td>0.001570</td>
+      <td>0.000002</td>
+      <td>0.000063</td>
+      <td>0.001650</td>
+      <td>0.000005</td>
+      <td>...</td>
+      <td>0.000048</td>
+      <td>0.000047</td>
+      <td>0.000046</td>
+      <td>0.000045</td>
+      <td>0.000042</td>
+      <td>0.000037</td>
+      <td>0.000029</td>
+      <td>0.000024</td>
+      <td>0.000032</td>
+      <td>0.000061</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9.040000e-07</td>
+      <td>0.000005</td>
+      <td>0.000903</td>
+      <td>0.000001</td>
+      <td>0.000001</td>
+      <td>0.000787</td>
+      <td>0.000001</td>
+      <td>0.000009</td>
+      <td>0.000926</td>
+      <td>0.000002</td>
+      <td>...</td>
+      <td>0.000091</td>
+      <td>0.000091</td>
+      <td>0.000090</td>
+      <td>0.000089</td>
+      <td>0.000087</td>
+      <td>0.000084</td>
+      <td>0.000079</td>
+      <td>0.000070</td>
+      <td>0.000056</td>
+      <td>0.000037</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.680000e-03</td>
+      <td>0.000048</td>
+      <td>0.001610</td>
+      <td>0.001870</td>
+      <td>0.003340</td>
+      <td>0.002200</td>
+      <td>0.002580</td>
+      <td>0.000061</td>
+      <td>0.001640</td>
+      <td>0.001950</td>
+      <td>...</td>
+      <td>0.000125</td>
+      <td>0.000125</td>
+      <td>0.000126</td>
+      <td>0.000127</td>
+      <td>0.000128</td>
+      <td>0.000132</td>
+      <td>0.000138</td>
+      <td>0.000148</td>
+      <td>0.000165</td>
+      <td>0.000191</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>9.090000e-03</td>
+      <td>0.000150</td>
+      <td>0.006460</td>
+      <td>0.008050</td>
+      <td>0.010000</td>
+      <td>0.007330</td>
+      <td>0.009020</td>
+      <td>0.000192</td>
+      <td>0.006500</td>
+      <td>0.008300</td>
+      <td>...</td>
+      <td>0.000153</td>
+      <td>0.000154</td>
+      <td>0.000155</td>
+      <td>0.000159</td>
+      <td>0.000165</td>
+      <td>0.000176</td>
+      <td>0.000195</td>
+      <td>0.000229</td>
+      <td>0.000285</td>
+      <td>0.000382</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>2.320000e+00</td>
+      <td>0.025000</td>
+      <td>1.790000</td>
+      <td>2.270000</td>
+      <td>2.380000</td>
+      <td>1.860000</td>
+      <td>2.330000</td>
+      <td>0.035800</td>
+      <td>1.780000</td>
+      <td>2.320000</td>
+      <td>...</td>
+      <td>0.006960</td>
+      <td>0.006940</td>
+      <td>0.006890</td>
+      <td>0.006570</td>
+      <td>0.005960</td>
+      <td>0.004970</td>
+      <td>0.003220</td>
+      <td>0.000334</td>
+      <td>0.008650</td>
+      <td>0.032800</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>2.320000e+00</td>
+      <td>0.025000</td>
+      <td>1.790000</td>
+      <td>2.270000</td>
+      <td>2.380000</td>
+      <td>1.860000</td>
+      <td>2.330000</td>
+      <td>0.035700</td>
+      <td>1.780000</td>
+      <td>2.320000</td>
+      <td>...</td>
+      <td>0.006960</td>
+      <td>0.006940</td>
+      <td>0.006890</td>
+      <td>0.006570</td>
+      <td>0.005960</td>
+      <td>0.004970</td>
+      <td>0.003220</td>
+      <td>0.000335</td>
+      <td>0.008640</td>
+      <td>0.032800</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>2.320000e+00</td>
+      <td>0.025000</td>
+      <td>1.790000</td>
+      <td>2.270000</td>
+      <td>2.380000</td>
+      <td>1.860000</td>
+      <td>2.330000</td>
+      <td>0.035700</td>
+      <td>1.780000</td>
+      <td>2.320000</td>
+      <td>...</td>
+      <td>0.006960</td>
+      <td>0.006940</td>
+      <td>0.006890</td>
+      <td>0.006570</td>
+      <td>0.005960</td>
+      <td>0.004970</td>
+      <td>0.003230</td>
+      <td>0.000337</td>
+      <td>0.008640</td>
+      <td>0.032800</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>2.320000e+00</td>
+      <td>0.025000</td>
+      <td>1.790000</td>
+      <td>2.260000</td>
+      <td>2.380000</td>
+      <td>1.860000</td>
+      <td>2.330000</td>
+      <td>0.035700</td>
+      <td>1.780000</td>
+      <td>2.320000</td>
+      <td>...</td>
+      <td>0.006960</td>
+      <td>0.006940</td>
+      <td>0.006890</td>
+      <td>0.006570</td>
+      <td>0.005960</td>
+      <td>0.004970</td>
+      <td>0.003230</td>
+      <td>0.000339</td>
+      <td>0.008630</td>
+      <td>0.032800</td>
+    </tr>
+    <tr>
+      <th>1000</th>
+      <td>2.320000e+00</td>
+      <td>0.025000</td>
+      <td>1.780000</td>
+      <td>2.260000</td>
+      <td>2.380000</td>
+      <td>1.860000</td>
+      <td>2.330000</td>
+      <td>0.035700</td>
+      <td>1.780000</td>
+      <td>2.320000</td>
+      <td>...</td>
+      <td>0.006960</td>
+      <td>0.006940</td>
+      <td>0.006890</td>
+      <td>0.006570</td>
+      <td>0.005970</td>
+      <td>0.004970</td>
+      <td>0.003230</td>
+      <td>0.000340</td>
+      <td>0.008620</td>
+      <td>0.032700</td>
+    </tr>
+  </tbody>
+</table>
+<p>1001 rows × 6298 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cz_delta_830B</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cz_delta_830B</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+
+<span class="ne">AttributeError</span>: &#39;numpy.ndarray&#39; object has no attribute &#39;describe&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="n">cz_center</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./daily_script"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PPH Industries, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

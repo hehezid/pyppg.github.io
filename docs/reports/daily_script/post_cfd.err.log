@@ -1,0 +1,89 @@
+Traceback (most recent call last):
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\nbclient\client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\jupyter_core\utils\__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1520.0_x64__qbz5n2kfra8p0\Lib\asyncio\base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\nbclient\client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\nbclient\client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\nbclient\client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def main():
+    st.title("CFD data post processing")
+
+    st.header("Upload CFD output Homogeneity.xlsx CSV data file")
+    data_file_1 = st.file_uploader("Upload CSV", type=["csv"])
+
+    st.header("Upload CFD output MotorPower.xlsx CSV data file")
+    data_file_2 = st.file_uploader("Upload CSV", type=["csv"])
+
+    if homogeneity_raw is not None:
+
+        homogeneity_raw = pd.read_csv(data_file_1)
+        motor_power_raw = pd.read_csv(data_file_2) 
+        # index
+        num_step = homogeneity_raw.shape[0]     
+        # save ori header info
+        homogeneity_header_ori = list(homogeneity_raw.columns.values)
+        
+        # homogeneity_header_ori.append("all")
+        # motor_power_header_ori = list(motor_power_raw.columns.values)
+        
+        # change headers for better use
+        homogeneity_raw.rename(columns={"Time [s]":"Time", "Homogeneity %":"Homogeneity"}, inplace=True)
+        
+        st.write("Data overview:")
+        st.write(homogeneity_raw.head())
+
+        st.sidebar.header("Visualizations")
+
+        time_range = st.slider('Choose plot time range', homogeneity_raw['Time'].min(), homogeneity_raw['Time'].max())
+        plot_variable = st.sidebar.selectbox("Choose a plot variable", homogeneity_header_ori)
+
+        x_axis = st.sidebar.selectbox("Select x-axis", homogeneity_raw.columns)
+        y_axis = st.sidebar.selectbox("Select y-axis", homogeneity_raw.columns)
+        fig, ax = plt.subplots()
+        sns.barplot(x=data[x_axis], y=data[y_axis], ax=ax)
+        st.pyplot(fig)
+
+if __name__ == "__main__":
+    main()
+------------------
+
+----- stderr -----
+2023-09-22 09:12:08.639
+----- stderr -----
+Warning:
+----- stderr -----
+ to view this Streamlit app on a browser, run it with the following
+  command:
+
+    streamlit run C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\ipykernel_launcher.py [ARGUMENTS]
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mUnboundLocalError[0m                         Traceback (most recent call last)
+Cell [1;32mIn[3], line 40[0m
+[0;32m     37[0m         st[38;5;241m.[39mpyplot(fig)
+[0;32m     39[0m [38;5;28;01mif[39;00m [38;5;18m__name__[39m [38;5;241m==[39m [38;5;124m"[39m[38;5;124m__main__[39m[38;5;124m"[39m:
+[1;32m---> 40[0m     [43mmain[49m[43m([49m[43m)[49m
+
+Cell [1;32mIn[3], line 10[0m, in [0;36mmain[1;34m()[0m
+[0;32m      7[0m st[38;5;241m.[39mheader([38;5;124m"[39m[38;5;124mUpload CFD output MotorPower.xlsx CSV data file[39m[38;5;124m"[39m)
+[0;32m      8[0m data_file_2 [38;5;241m=[39m st[38;5;241m.[39mfile_uploader([38;5;124m"[39m[38;5;124mUpload CSV[39m[38;5;124m"[39m, [38;5;28mtype[39m[38;5;241m=[39m[[38;5;124m"[39m[38;5;124mcsv[39m[38;5;124m"[39m])
+[1;32m---> 10[0m [38;5;28;01mif[39;00m [43mhomogeneity_raw[49m [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[0;32m     12[0m     homogeneity_raw [38;5;241m=[39m pd[38;5;241m.[39mread_csv(data_file_1)
+[0;32m     13[0m     motor_power_raw [38;5;241m=[39m pd[38;5;241m.[39mread_csv(data_file_2) 
+
+[1;31mUnboundLocalError[0m: cannot access local variable 'homogeneity_raw' where it is not associated with a value
+

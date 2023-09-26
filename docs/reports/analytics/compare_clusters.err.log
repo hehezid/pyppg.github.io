@@ -1,0 +1,356 @@
+Traceback (most recent call last):
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\nbclient\client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\jupyter_core\utils\__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1520.0_x64__qbz5n2kfra8p0\Lib\asyncio\base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\nbclient\client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\nbclient\client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\nbclient\client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import time
+import warnings
+import pandas as pd
+from itertools import cycle, islice
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+from sklearn import cluster, datasets, mixture
+from sklearn.neighbors import kneighbors_graph
+from sklearn.preprocessing import StandardScaler
+
+np.random.seed(0)
+
+# ============
+# Generate datasets. We choose the size big enough to see the scalability
+# of the algorithms, but not too big to avoid too long running times
+# ============
+n_samples = 500
+noisy_circles = datasets.make_circles(n_samples=n_samples, factor=0.5, noise=0.05)
+noisy_moons = datasets.make_moons(n_samples=n_samples, noise=0.05)
+blobs = datasets.make_blobs(n_samples=n_samples, random_state=8)
+no_structure = np.random.rand(n_samples, 2), None
+
+# Anisotropicly distributed data
+random_state = 170
+X, y = datasets.make_blobs(n_samples=n_samples, random_state=random_state)
+transformation = [[0.6, -0.6], [-0.4, 0.8]]
+X_aniso = np.dot(X, transformation)
+aniso = (X_aniso, y)
+
+# blobs with varied variances
+varied = datasets.make_blobs(
+    n_samples=n_samples, cluster_std=[1.0, 2.5, 0.5], random_state=random_state
+)
+
+# ============
+# Set up cluster parameters
+# ============
+plt.figure(figsize=(9 * 2 + 3, 13))
+plt.subplots_adjust(
+    left=0.02, right=0.98, bottom=0.001, top=0.95, wspace=0.05, hspace=0.01
+)
+
+plot_num = 1
+
+default_base = {
+    "quantile": 0.3,
+    "eps": 0.3,
+    "damping": 0.9,
+    "preference": -200,
+    "n_neighbors": 3,
+    "n_clusters": 3,
+    "min_samples": 7,
+    "xi": 0.05,
+    "min_cluster_size": 0.1,
+    "allow_single_cluster": True,
+    "hdbscan_min_cluster_size": 15,
+    "hdbscan_min_samples": 3,
+}
+
+emp_np = pd.read_csv("node-y-locations.csv", skiprows=4).to_numpy()
+
+datasets = [
+    (
+        (emp_np, []),
+    
+        {
+        }    
+    ),
+    (
+        noisy_circles,
+        {
+            "damping": 0.77,
+            "preference": -240,
+            "quantile": 0.2,
+            "n_clusters": 2,
+            "min_samples": 7,
+            "xi": 0.08,
+        },
+    ),
+    (
+        noisy_moons,
+        {
+            "damping": 0.75,
+            "preference": -220,
+            "n_clusters": 2,
+            "min_samples": 7,
+            "xi": 0.1,
+        },
+    ),
+    (
+        varied,
+        {
+            "eps": 0.18,
+            "n_neighbors": 2,
+            "min_samples": 7,
+            "xi": 0.01,
+            "min_cluster_size": 0.2,
+        },
+    ),
+    (
+        aniso,
+        {
+            "eps": 0.15,
+            "n_neighbors": 2,
+            "min_samples": 7,
+            "xi": 0.1,
+            "min_cluster_size": 0.2,
+        },
+    ),
+    (blobs, {"min_samples": 7, "xi": 0.1, "min_cluster_size": 0.2}),
+    (no_structure, {}),
+]
+
+for i_dataset, (dataset, algo_params) in enumerate(datasets):
+    # update parameters with dataset-specific values
+    params = default_base.copy()
+    params.update(algo_params)
+
+    X, y = dataset
+
+    # normalize dataset for easier parameter selection
+    X = StandardScaler().fit_transform(X)
+
+    # estimate bandwidth for mean shift
+    bandwidth = cluster.estimate_bandwidth(X, quantile=params["quantile"])
+
+    # connectivity matrix for structured Ward
+    connectivity = kneighbors_graph(
+        X, n_neighbors=params["n_neighbors"], include_self=False
+    )
+    # make connectivity symmetric
+    connectivity = 0.5 * (connectivity + connectivity.T)
+
+    # ============
+    # Create cluster objects
+    # ============
+    ms = cluster.MeanShift(bandwidth=bandwidth, bin_seeding=True)
+    two_means = cluster.MiniBatchKMeans(n_clusters=params["n_clusters"], n_init="auto")
+    ward = cluster.AgglomerativeClustering(
+        n_clusters=params["n_clusters"], linkage="ward", connectivity=connectivity
+    )
+    spectral = cluster.SpectralClustering(
+        n_clusters=params["n_clusters"],
+        eigen_solver="arpack",
+        affinity="nearest_neighbors",
+    )
+    dbscan = cluster.DBSCAN(eps=params["eps"])
+    hdbscan = cluster.HDBSCAN(
+        min_samples=params["hdbscan_min_samples"],
+        min_cluster_size=params["hdbscan_min_cluster_size"],
+        allow_single_cluster=params["allow_single_cluster"],
+    )
+    optics = cluster.OPTICS(
+        min_samples=params["min_samples"],
+        xi=params["xi"],
+        min_cluster_size=params["min_cluster_size"],
+    )
+    affinity_propagation = cluster.AffinityPropagation(
+        damping=params["damping"], preference=params["preference"], random_state=0
+    )
+    average_linkage = cluster.AgglomerativeClustering(
+        linkage="average",
+        metric="cityblock",
+        n_clusters=params["n_clusters"],
+        connectivity=connectivity,
+    )
+    birch = cluster.Birch(n_clusters=params["n_clusters"])
+    gmm = mixture.GaussianMixture(
+        n_components=params["n_clusters"], covariance_type="full"
+    )
+
+    clustering_algorithms = (
+        ("MiniBatch\nKMeans", two_means),
+        ("Affinity\nPropagation", affinity_propagation),
+        ("MeanShift", ms),
+        ("Spectral\nClustering", spectral),
+        ("Ward", ward),
+        ("Agglomerative\nClustering", average_linkage),
+        ("DBSCAN", dbscan),
+        ("HDBSCAN", hdbscan),
+        ("OPTICS", optics),
+        ("BIRCH", birch),
+        ("Gaussian\nMixture", gmm),
+    )
+
+    for name, algorithm in clustering_algorithms:
+        t0 = time.time()
+
+        # catch warnings related to kneighbors_graph
+        with warnings.catch_warnings():
+            warnings.filterwarnings(
+                "ignore",
+                message="the number of connected components of the "
+                + "connectivity matrix is [0-9]{1,2}"
+                + " > 1. Completing it to avoid stopping the tree early.",
+                category=UserWarning,
+            )
+            warnings.filterwarnings(
+                "ignore",
+                message="Graph is not fully connected, spectral embedding"
+                + " may not work as expected.",
+                category=UserWarning,
+            )
+            algorithm.fit(X)
+
+        t1 = time.time()
+        if hasattr(algorithm, "labels_"):
+            y_pred = algorithm.labels_.astype(int)
+        else:
+            y_pred = algorithm.predict(X)
+
+        plt.subplot(len(datasets), len(clustering_algorithms), plot_num)
+        if i_dataset == 0:
+            plt.title(name, size=18)
+
+        colors = np.array(
+            list(
+                islice(
+                    cycle(
+                        [
+                            "#377eb8",
+                            "#ff7f00",
+                            "#4daf4a",
+                            "#f781bf",
+                            "#a65628",
+                            "#984ea3",
+                            "#999999",
+                            "#e41a1c",
+                            "#dede00",
+                        ]
+                    ),
+                    int(max(y_pred) + 1),
+                )
+            )
+        )
+        # add black color for outliers (if any)
+        colors = np.append(colors, ["#000000"])
+        plt.scatter(X[:, 0], X[:, 1], s=10, color=colors[y_pred])
+
+        plt.xlim(-2.5, 2.5)
+        plt.ylim(-2.5, 2.5)
+        plt.xticks(())
+        plt.yticks(())
+        plt.text(
+            0.99,
+            0.01,
+            ("%.2fs" % (t1 - t0)).lstrip("0"),
+            transform=plt.gca().transAxes,
+            size=15,
+            horizontalalignment="right",
+        )
+        plot_num += 1
+
+plt.show()
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Cell [1;32mIn[1], line 62[0m
+[0;32m     45[0m plot_num [38;5;241m=[39m [38;5;241m1[39m
+[0;32m     47[0m default_base [38;5;241m=[39m {
+[0;32m     48[0m     [38;5;124m"[39m[38;5;124mquantile[39m[38;5;124m"[39m: [38;5;241m0.3[39m,
+[0;32m     49[0m     [38;5;124m"[39m[38;5;124meps[39m[38;5;124m"[39m: [38;5;241m0.3[39m,
+[1;32m   (...)[0m
+[0;32m     59[0m     [38;5;124m"[39m[38;5;124mhdbscan_min_samples[39m[38;5;124m"[39m: [38;5;241m3[39m,
+[0;32m     60[0m }
+[1;32m---> 62[0m emp_np [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mnode-y-locations.csv[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mskiprows[49m[38;5;241;43m=[39;49m[38;5;241;43m4[39;49m[43m)[49m[38;5;241m.[39mto_numpy()
+[0;32m     64[0m datasets [38;5;241m=[39m [
+[0;32m     65[0m     (
+[0;32m     66[0m         (emp_np, []),
+[1;32m   (...)[0m
+[0;32m    113[0m     (no_structure, {}),
+[0;32m    114[0m ]
+[0;32m    116[0m [38;5;28;01mfor[39;00m i_dataset, (dataset, algo_params) [38;5;129;01min[39;00m [38;5;28menumerate[39m(datasets):
+[0;32m    117[0m     [38;5;66;03m# update parameters with dataset-specific values[39;00m
+
+File [1;32m~\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\pandas\io\parsers\readers.py:912[0m, in [0;36mread_csv[1;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)[0m
+[0;32m    899[0m kwds_defaults [38;5;241m=[39m _refine_defaults_read(
+[0;32m    900[0m     dialect,
+[0;32m    901[0m     delimiter,
+[1;32m   (...)[0m
+[0;32m    908[0m     dtype_backend[38;5;241m=[39mdtype_backend,
+[0;32m    909[0m )
+[0;32m    910[0m kwds[38;5;241m.[39mupdate(kwds_defaults)
+[1;32m--> 912[0m [38;5;28;01mreturn[39;00m [43m_read[49m[43m([49m[43mfilepath_or_buffer[49m[43m,[49m[43m [49m[43mkwds[49m[43m)[49m
+
+File [1;32m~\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\pandas\io\parsers\readers.py:577[0m, in [0;36m_read[1;34m(filepath_or_buffer, kwds)[0m
+[0;32m    574[0m _validate_names(kwds[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mnames[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m))
+[0;32m    576[0m [38;5;66;03m# Create the parser.[39;00m
+[1;32m--> 577[0m parser [38;5;241m=[39m [43mTextFileReader[49m[43m([49m[43mfilepath_or_buffer[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwds[49m[43m)[49m
+[0;32m    579[0m [38;5;28;01mif[39;00m chunksize [38;5;129;01mor[39;00m iterator:
+[0;32m    580[0m     [38;5;28;01mreturn[39;00m parser
+
+File [1;32m~\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\pandas\io\parsers\readers.py:1407[0m, in [0;36mTextFileReader.__init__[1;34m(self, f, engine, **kwds)[0m
+[0;32m   1404[0m     [38;5;28mself[39m[38;5;241m.[39moptions[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m] [38;5;241m=[39m kwds[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m]
+[0;32m   1406[0m [38;5;28mself[39m[38;5;241m.[39mhandles: IOHandles [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m-> 1407[0m [38;5;28mself[39m[38;5;241m.[39m_engine [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_make_engine[49m[43m([49m[43mf[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mengine[49m[43m)[49m
+
+File [1;32m~\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\pandas\io\parsers\readers.py:1661[0m, in [0;36mTextFileReader._make_engine[1;34m(self, f, engine)[0m
+[0;32m   1659[0m     [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m mode:
+[0;32m   1660[0m         mode [38;5;241m+[39m[38;5;241m=[39m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m
+[1;32m-> 1661[0m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;241m=[39m [43mget_handle[49m[43m([49m
+[0;32m   1662[0m [43m    [49m[43mf[49m[43m,[49m
+[0;32m   1663[0m [43m    [49m[43mmode[49m[43m,[49m
+[0;32m   1664[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mencoding[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1665[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mcompression[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1666[0m [43m    [49m[43mmemory_map[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mmemory_map[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1667[0m [43m    [49m[43mis_text[49m[38;5;241;43m=[39;49m[43mis_text[49m[43m,[49m
+[0;32m   1668[0m [43m    [49m[43merrors[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mencoding_errors[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mstrict[39;49m[38;5;124;43m"[39;49m[43m)[49m[43m,[49m
+[0;32m   1669[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mstorage_options[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1670[0m [43m[49m[43m)[49m
+[0;32m   1671[0m [38;5;28;01massert[39;00m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[0;32m   1672[0m f [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mhandles[38;5;241m.[39mhandle
+
+File [1;32m~\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\pandas\io\common.py:859[0m, in [0;36mget_handle[1;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
+[0;32m    854[0m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(handle, [38;5;28mstr[39m):
+[0;32m    855[0m     [38;5;66;03m# Check whether the filename is to be opened in binary mode.[39;00m
+[0;32m    856[0m     [38;5;66;03m# Binary mode does not support 'encoding' and 'newline'.[39;00m
+[0;32m    857[0m     [38;5;28;01mif[39;00m ioargs[38;5;241m.[39mencoding [38;5;129;01mand[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m ioargs[38;5;241m.[39mmode:
+[0;32m    858[0m         [38;5;66;03m# Encoding[39;00m
+[1;32m--> 859[0m         handle [38;5;241m=[39m [38;5;28;43mopen[39;49m[43m([49m
+[0;32m    860[0m [43m            [49m[43mhandle[49m[43m,[49m
+[0;32m    861[0m [43m            [49m[43mioargs[49m[38;5;241;43m.[39;49m[43mmode[49m[43m,[49m
+[0;32m    862[0m [43m            [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mioargs[49m[38;5;241;43m.[39;49m[43mencoding[49m[43m,[49m
+[0;32m    863[0m [43m            [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m,[49m
+[0;32m    864[0m [43m            [49m[43mnewline[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[0;32m    865[0m [43m        [49m[43m)[49m
+[0;32m    866[0m     [38;5;28;01melse[39;00m:
+[0;32m    867[0m         [38;5;66;03m# Binary mode[39;00m
+[0;32m    868[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(handle, ioargs[38;5;241m.[39mmode)
+
+[1;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'node-y-locations.csv'
+
