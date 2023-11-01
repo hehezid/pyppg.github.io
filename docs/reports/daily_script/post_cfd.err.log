@@ -7,7 +7,7 @@ Traceback (most recent call last):
   File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\jupyter_core\utils\__init__.py", line 166, in wrapped
     return loop.run_until_complete(inner)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1520.0_x64__qbz5n2kfra8p0\Lib\asyncio\base_events.py", line 653, in run_until_complete
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1776.0_x64__qbz5n2kfra8p0\Lib\asyncio\base_events.py", line 653, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
   File "C:\Users\T260366\OneDrive - PPG Industries, Inc\Github\pyppg-handbook\venv\Lib\site-packages\nbclient\client.py", line 705, in async_execute
@@ -61,7 +61,7 @@ if __name__ == "__main__":
 ------------------
 
 ----- stderr -----
-2023-09-26 10:02:27.678
+2023-11-01 10:54:14.057
 ----- stderr -----
 Warning:
 ----- stderr -----
